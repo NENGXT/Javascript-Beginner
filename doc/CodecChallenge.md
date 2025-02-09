@@ -60,5 +60,28 @@ console.log(`Mark's BMI is ${markBMI}, and John's BMI is ${johnBMI})`);
 console.log(`${result1 ? 'Mark is heavier' : 'John is heavier'}`);
 console.log(`${result2 ? 'Mark is heavier' : 'John is heavier'}`);
 ```
----
+# 挑战 #2
+
+使用挑战 #1 的 BMI 示例和你已编写的代码，并进行改进：
+
+## 任务
+
+1. 在控制台打印一个友好的输出，告诉用户谁的 BMI 更高。
+   - 可能的输出信息：
+     - `"Mark 的 BMI 比 John 更高！"`
+     - `"John 的 BMI 比 Mark 更高！"`
+
+2. 修改输出，使用模板字符串（template literals）在消息中包含 BMI 数值。
+   - 示例：
+     - `"Mark 的 BMI (${BMIMark}) 比 John (${BMIJohn}) 更高！"`
+     - `"John 的 BMI (${BMIJohn}) 比 Mark (${BMIMark}) 更高！"`
+
+## 重要提示
+
+- **不要对 BMI 数值进行四舍五入，保持原始精度。**
+- **`**` 运算符不被支持，请使用 `mass / (height * height)` 公式，而不是 `mass / (height ** 2)`。**
+
+
+
+
 
