@@ -61,6 +61,15 @@ JavaScript可以用来创建动态的网页，实现交互式功能。
 - `<=` 小于或等于
 - `>=` 大于或等于
 
+### 📒布尔逻辑：
+**什么是布尔逻辑？**
+- 布尔逻辑是通过真值和假值来解决复杂问题的方法。
+
+**AND/OR/NOT**
+- **AND**（与）: 如果两个条件都为真，则返回真。用`&&`表示。
+- **OR**（或）: 如果至少有一个条件为真，则返回真。用`||`表示。
+- **NOT**（非）: 如果条件为真，则返回假，否则返回真。用`!`表示。
+
 ## 基本语法
 - 使用`console.log()`输出内容到控制台。使用`alert()`显示一个警告框。
 
@@ -68,6 +77,10 @@ JavaScript可以用来创建动态的网页，实现交互式功能。
 console.log("Hello World");
 alert("Hello World");
 ```
+
+### 语句和表达式(Statements and Expressions )
+- **语句**：一组命令，用于完成特定的任务。例如`if...else`、`for`循环等。
+- **表达式**：计算结果（生成值）的代码块。例如`1 + 2`、`"Hello World!"`等。
 
 - 使用`typeof(变量名)`来检查变量的类型。
 ```js
@@ -127,5 +140,43 @@ if (isEnough) {
   - 可以使用 `Number()` `string()` 和 `parseInt()` 等函数来手动进行类型转换。
   - 可以通过`else if()`语句来检查多个条件。
 
-- 使用`prompt()`
+- switch语句:
+  - switch的使用场景：根据一个变量的不同值执行不同的代码块。
+  - 语法：
+```js
+const guessNumber = 2;
+switch (guessNumber) {
+    case 1:
+        console.log('You guessed 1!');
+        break;
+    case 2:
+        console.log('You guessed 2!');
+        break;
+    case 3:
+        console.log('You guessed 3!');
+        break;
+    default:
+        console.log('Invalid input!');
+}
+```
+
+- 条件运算符:
+  - 条件运算符（三元运算符）：`(条件) ? (如果为真执行的代码) : (如果为假执行的代码)`。
+  - 示例1(通过判断已知变量的值，作为条件运行代码)：
+```js
+const isAdult = true;
+isAdult ? console.log('You are an adult!') : console.log('You are not an adult!');
+```
+  - 示例2(通过一个新的变量来储存条件运算符的结果):
+```js
+const age = 18;
+const isAdult = age >= 18 ? '😝' : '😭'; //isAdult的值是根据age的值来决定的，如果age大于或等于18，则isAdult的值为'😝'，否则为'😭'
+console.log(isAdult);
+```
+  - 条件运算符可以作为模版字符串中的占位符使用，因为他本质是一个表达式。例如：
+```js
+const score = 91;
+const message = score >= 60 ? '恭喜通过期末考🥳' : `你不及格😭`;
+console.log(`同学，你的考试成绩是${score}分，${message}`);
+```
 </font>

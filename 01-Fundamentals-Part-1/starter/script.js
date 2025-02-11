@@ -144,19 +144,96 @@ CODE CHALLENGE 2
 ---------------*/
 
 
-const inputAge = prompt('Enter your age: ');
-const age = Number(inputAge);
-if (age === 18) {
-    console.log('YOUR are an adult!');
-} else if (age > 18) {
-    console.log('You are a teenager!');
-}
-else {
-    console.log('You are not an adult!');
-}
+// const inputAge = prompt('Enter your age: ');
+// const age = Number(inputAge);
+// if (age === 18) {
+//     console.log('YOUR are an adult!');
+// } else if (age > 18) {
+//     console.log('You are a teenager!');
+// }
+// else {
+//     console.log('You are not an adult!');
+// }
 
-if (age !== 18) {
-    console.log(`You are not 18!`);
-} else {
-    console.log(`You are 18!`);
-}
+// if (age !== 18) {
+//     console.log(`You are not 18!`);
+// } else {
+//     console.log(`You are 18!`);
+// }
+
+/*---------------
+AND/OR/NOT
+---------------*/
+
+// const hasLicense = true;
+// const hasGoodVision = true;
+// const isTired = true;
+
+// const shouldDrive = hasLicense && hasGoodVision && !isTired;
+
+// if (shouldDrive) {
+//     console.log("You can drive!");
+// } else {
+//     console.log("You cannot drive!");
+// }
+
+/*---------------
+CODE CHALLENGE 3
+---------------*/
+
+// const scoreDolphins = (96 + 108 + 89) / 3;
+// const scoreKoalas = (88 + 91 + 110) / 3;
+
+// if (scoreDolphins > scoreKoalas) {
+//     console.log('Dolphins win the trophy');
+// } else if (scoreKoalas > scoreDolphins) {
+//     console.log('Koalas win the trophy');
+// } else {
+//     console.log('It is a draw!');
+// }
+
+/*---------------
+SWITCH
+---------------*/
+
+// const inputA = 1;
+// const inputB = 30;
+// const operator = '-';
+
+// switch (operator) {
+//     case '+':
+//         console.log(`${inputA} + ${inputB} = ${inputA + inputB}`);
+//         break;
+//     case '-':
+//         console.log(`${inputA} - ${inputB} = ${inputA - inputB}`);
+//         break;
+//     case '*':
+//         console.log(`${inputA} * ${inputB} = ${inputA * inputB}`);
+//         break;
+//     case '/':
+//         console.log(`${inputA} / ${inputB} = ${inputA / inputB}`);
+//         break;
+//     default:
+//         console.log('Invalid operator');
+// }
+
+/*---------------
+条件运算符（三元运算符）
+---------------*/
+// const age = 18;
+// age >= 18 ? console.log('You are an adult') : console.log('You are a minor');
+
+// const result = age >= 18 ? '🥸' : '😇';
+// console.log(result);
+
+// const score = 85;
+// const message = score >= 60 ? '恭喜通过期末考🥳' : `你不及格😭`;
+// console.log(`同学，你的考试成绩是${score}分，${message}`);
+
+/*---------------
+CODE CHALLENGE 4
+---------------*/
+
+// const bill = 275;
+// const tip = bill > 50 && bill < 300 ? bill * 0.15 : bill * 0.2;
+// console.log(`你的账单总额为${bill}元，消费为${tip}元，合计:${bill + tip}元。`);
