@@ -24,5 +24,12 @@ function calcAge1(birthday) {
     const age = new Date().getFullYear() - birthday;
     return age;
 }
-const age1 = calcAge1(2000); // 调用函数并传入参数
-console.log(age1); // 输出结果
+
+const juiceMachine = function (apples, oranges) {
+    const juice = `juice made with ${apples} apples and ${oranges} oranges`;
+    return juice;
+}
+
+const appleJuice = juiceMachine(5, 0);
+const orangesJuice = juiceMachine(0, 3);
+console.log(appleJuice, orangesJuice);
