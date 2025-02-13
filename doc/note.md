@@ -76,6 +76,8 @@ JavaScript可以用来创建动态的网页，实现交互式功能。
   - Function可以像变量一样储存(代码)，也可以像函数一样调用。 
   - 我们可以把Function看作一个机器，它可以通过内部的代码来将我们传递给它的参数进行处理，并且返回(`return`)给我们内部处理的结果。
   - `return`返回的结果可以被其他函数使用或存储。
+  - 在Js中，函数其实也只是个值，因为函数是值，所以可以被储存在声明的变量中
+  - ⚠️如果使用函数表达式定义的话，不可以在函数还没有被定义的时候提前调用要储存该函数的变量⚠️
 
 ## 基本语法
 - 使用`console.log()`输出内容到控制台。使用`alert()`显示一个警告框。
@@ -227,16 +229,53 @@ console.log(`同学，你的考试成绩是${score}分，${message}`);
     const age1 = calcAge1(2000); // 调用函数并传入参数
     console.log(age1); // 输出结果
     ```
-    - 函数表达式声明
+    - 函数表达式声明:使用function关键字来定义一个匿名函数，然后赋值给变量。例：
     ```js
-    //使用function关键字来定义一个匿名函数，然后赋值给变量calcAge1
     const calcAge1 = function(birthday) {/
         const age = new Date().getFullYear() - birthday;
         return age;
     }
-    console.log(); // 输出结果
+    console.log(calcAge1(1995)); // 输出结果
     ```
-    - 箭头函数声明
+    - 箭头函数声明:使用箭头符号=>来定义一个匿名函数，不需要function关键字。例：
+    ```js
+    //基本语法:
+    const 变量名 = (参数) => 返回结果;
+    //当返回值是一个复杂代码时，可以使用大括号{}包裹起来。
+    const 变量名 = (参数) => {
+      const 函数内变量名 = 赋值;
+      return 函数变量名;
+    }
+    console.log(变量名(参数)); // 输出结果
+    ```
+    - **函数内部调用函数:** 
+    ```mermaid 
+    graph TD;
+    A[调用 mainFunction] -->  B[传入参数]
+    B --> |调用和传入例：console.log mainFunction（param1, param2）;| C[调用 helperFunction]
+    C --> |在mainFunction调用helperFunction| D[处理数据]
+    D --> E[返回结果]
+    E --> F[mainFunction 接收结果]
+    F --> G[返回最终输出]
+    ```
+      - 代码示例:
+    ```js
+    //辅助函数
+    function fruitCutter(fruit){
+      return fruit * 4; //这里的fruit将会接受来自fruitMachine的参数
+    }
+
+    //主函数
+    function fruitMachine(apples,oranges){
+      //调用辅助函数，传给辅助函数参数，并返回辅助函数的处理结果
+      const appleJuice = fruitCutter(4);
+      const orangeJuice = fruitCutter(6);
+
+      return `做苹果汁需要${applesJuice}个苹果，做橙汁需要${orangeJuice}个橙子`;
+    }
+    const juice = fruitMachine(2,3);//调用函数并传入参数到主函数
+    console.log(juice); //输出结果:做苹果汁需要16个苹果，做橙汁需要24个橙子。
+    ```
     
 
 
