@@ -79,6 +79,10 @@ JavaScript可以用来创建动态的网页，实现交互式功能。
   - 在Js中，函数其实也只是个值，因为函数是值，所以可以被储存在声明的变量中
   - ⚠️如果使用函数表达式定义的话，不可以在函数还没有被定义的时候提前调用要储存该函数的变量⚠️
 
+### 📒数组：
+  - 数组是一种特殊的对象，可以用来存储多个数据项。
+  - 数组可以存储不同类型的数据项，包括字符串、数字、布尔值等，甚至是表达式。
+
 ## 基本语法
 - 使用`console.log()`输出内容到控制台。使用`alert()`显示一个警告框。
 
@@ -268,8 +272,8 @@ console.log(`同学，你的考试成绩是${score}分，${message}`);
     //主函数
     function fruitMachine(apples,oranges){
       //调用辅助函数，传给辅助函数参数，并返回辅助函数的处理结果
-      const appleJuice = fruitCutter(4);
-      const orangeJuice = fruitCutter(6);
+      const appleJuice = fruitCutter(apples);
+      const orangeJuice = fruitCutter(oranges);
 
       return `做苹果汁需要${applesJuice}个苹果，做橙汁需要${orangeJuice}个橙子`;
     }
@@ -277,8 +281,59 @@ console.log(`同学，你的考试成绩是${score}分，${message}`);
     console.log(juice); //输出结果:做苹果汁需要16个苹果，做橙汁需要24个橙子。
     ```
     
-
-
-
-
+- **数组语法:**
+  - 用`[]`来创建一个数组。
+  - 也可以使用`new Array()`来创建一个数组。
+  - 如果要调用数组中的某个元素，可以使用**索引**。索引从0开始，所以第一个元素的索引是0，第二个元素的索引是1，依此类推。例子如下：
+    ```js
+    const fruits = ["apple","orange","banana"];
+    console.log(fruits[0]); //输出结果:apple
+    console.log(fruits[1]); //输出结果:orange
+    console.log(fruits[2]); //输出结果:banana
+    ``` 
+  - 🚀 数组操作技巧:  
+    - `数组变量名.length`:
+      - 可以用来获取数组的长度。例子如下：
+        ```js
+        const fruits = ['banana', 'orange' ,'watermelon'];
+        console.log(fruits.length); // 输出结果:3
+        ```
+      - 使用`变量名(变量名.length-1)`可以用来获取数组中最后一个元素(因为总长度一定比索引大一)。
+    - `变量名.includes()`:可以用来判断数组中是否包含某个元素。例子如下：
+      ```js
+      const artist = ['张三', '李四', '王五'];
+      console.log(artist.includes('张三')); // 输出结果:true
+      ```
+    - `数组变量名.indexOf(元素)`:可以用来查找元素在数组中的索引位置，如果找不到则返回-1。
+    - ➕ 添加数组元素的方法：
+      - `数组变量名.push()`可以将一个或多个值添加到数组的**末尾**。例子如下：
+        ```js
+        const age = [18,19,20];
+        age.push(35);
+        console.log(age); // 输出结果:[18, 19, 20, 35]
+        ```
+      - `数组变量名.unshift()`可以将一个或多个值添加到数组的**开头**。例子如下：
+        ```js
+        const age = [18,19,20];
+        age.unshift(35);
+        console.log(age); // 输出结果:[35, 18, 19, 20]
+        ```
+    - ➖ 删减数组元素的方法：
+      - `数组变量名.pop()`可以移除数组的**末尾**的一个值。例子如下：
+        ```js
+        const studentList = ['Eric', 'John', 'Mike'];
+        studentList.pop();
+        console.log(studentList); // 输出结果:['Eric', 'John']
+        ```
+        - `pop()`自身会返回被移除的元素。例子如下：
+          ```js
+          const studentList = ['Eric', 'John', 'Mike'];
+          console.log(studentList.pop());// 输出结果:'Mike'
+          ```
+      - `数组变量名.shift()`可以移除数组的**开头**的一个值。例子如下:
+        ```js
+        const studentList = ['Eric', 'John', 'Mike'];
+        studentList.shift();
+        console.log(studentList); // 输出结果:['John', 'Mike']
+        ```
 </font>
