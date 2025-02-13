@@ -48,7 +48,6 @@ FUNCTION
 function fruitCutter(fruit) {
     return fruit * 4;
 }
-<<<<<<< HEAD
 function fruitMachine(apples, oranges) {
     const applepieces = fruitCutter(apples);
     const orangePieces = fruitCutter(oranges);
@@ -57,14 +56,3 @@ The orangesjuice needs ${orangePieces} pieces of oranges.`;
 }
 const juice = fruitMachine(2, 3); // 调用函数并传入参数
 console.log(juice); // 输出结果
-=======
-
-const juiceMachine = function (apples, oranges) {
-    const juice = `juice made with ${apples} apples and ${oranges} oranges`;
-    return juice;
-}
-
-const appleJuice = juiceMachine(5, 0);
-const orangesJuice = juiceMachine(0, 3);
-console.log(appleJuice, orangesJuice);
->>>>>>> ecfb57aff84bc44ed8e4e0d2a06a5ca823be0d61
