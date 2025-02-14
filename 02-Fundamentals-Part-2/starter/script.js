@@ -154,17 +154,93 @@ FUNCTION
 // const addOne = artist.unshift('MIKE');
 // console.log(artist.includes('MIKE'), addOne);
 
-/* 代码挑战6 
+/* 代码挑战6
 测试数据：
 125、555、44
 */
-const calcTip = function (bill) {
-    return bill >= 50 && bill <= 300 ? bill * .15 : bill * 2;
+// const calcTip = function (bill) {
+//     return bill >= 50 && bill <= 300 ? bill * .15 : bill * 2;
+// }
+
+// const bills = [125, 555, 44];
+// const tips = [calcTip(125), calcTip(555), calcTip(44)];
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+// console.log(`Your bills are ${bills}
+// your tips are ${tips}
+// your total is ${totals}`);
+
+
+//对象
+// const aboutMe = {
+//     name: 'AXITEE',
+//     job: 'Rookie Progarmer',
+//     age: new Date().getFullYear() - 1995,
+//     country: 'Japan'
+// }
+
+// const namekey = 'Name';
+// console.log(aboutMe['my' + namekey]);
+// console.log(aboutMe.age);
+
+// const userKey = prompt('你想知道关于我的什么？');
+
+
+// if (aboutMe[userKey]) {
+//     console.log(aboutMe[userKey]);
+// } else {
+//     console.log('你输入的不是正确的信息');
+// }
+
+// aboutMe.dream = '过平静且稍微富足的生活';//添加属性1
+// aboutMe['hobby'] = 'Music and Progarming';//添加属性2
+
+// console.log(aboutMe);
+
+// const accout = {
+//     name: 'Jonas',
+//     friends: ['Michael', 'Peter', 'Steven']
+// }
+// const message = `${accout.name} has ${accout.friends.length} friends,his best friend is ${accout.friends[0]}.`;
+// console.log(message);
+
+//对象方法
+const aboutMe = {
+    name: 'AXITEE',
+    job: 'Rookie Progarmer',
+    birthday: 1995,
+    country: 'Japan',
+    hasDriverLicense: true,
+    // calcAge: function (age) {
+    //     if (age >= 18) {
+    //         return 'You are old enough to drive';
+    //     } else {
+    //         return 'You are not old enough to drive';
+    //     }
+    // }
+
+    // calcAge: function () {
+    //     if (this.age >= 18) {
+    //         return 'You are old enough to drive';
+    //     } else {
+    //         return 'You are not old enough to drive';
+    //     }
+    // }
+
+    calcAge: function () {
+        this.age = new Date().getFullYear() - this.birthday;
+        return `${this.age}`;
+    },
+
+    getSummary: function () {
+        this.country = 'CHINA';
+        return `该用户的数据为:
+姓名：${this.name}
+职业：${this.job}
+生日：${this.birthday}
+国籍：${this.country}
+年龄：${this.calcAge()}`;
+    }
+
 }
 
-const bills = [125, 555, 44];
-const tips = [calcTip(125), calcTip(555), calcTip(44)];
-const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
-console.log(`Your bills are ${bills}
-your tips are ${tips}
-your total is ${totals}`);
+console.log(aboutMe.getSummary());
