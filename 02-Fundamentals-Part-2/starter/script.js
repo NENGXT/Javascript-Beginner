@@ -204,43 +204,140 @@ FUNCTION
 // console.log(message);
 
 //对象方法
-const aboutMe = {
-    name: 'AXITEE',
-    job: 'Rookie Progarmer',
-    birthday: 1995,
-    country: 'Japan',
-    hasDriverLicense: true,
-    // calcAge: function (age) {
-    //     if (age >= 18) {
-    //         return 'You are old enough to drive';
-    //     } else {
-    //         return 'You are not old enough to drive';
-    //     }
-    // }
+// const person = {
+//     name: 'AXITEE',
+//     job: 'Rookie Progarmer',
+//     birthday: 1995,
+//     country: 'CHINA',
+//     friends: ['Azoom', 'Leo', '弟弟'],
+//     calcAge: function () {
+//         return new Date().getFullYear() - this.birthday;
+//     },
+//     getSummary: function () {
+//         return `该用户的数据为：
+// 姓名：${this.name}
+// 职业：${this.job}
+// 年龄：${this.calcAge()}
+// 所在地：${this.country}
+// 好友：${this.friends}`
+//     }
+// }
 
-    // calcAge: function () {
-    //     if (this.age >= 18) {
-    //         return 'You are old enough to drive';
-    //     } else {
-    //         return 'You are not old enough to drive';
-    //     }
-    // }
+// console.log(person.getSummary());
 
-    calcAge: function () {
-        this.age = new Date().getFullYear() - this.birthday;
-        return `${this.age}`;
-    },
+//挑战 7
+//BMI = 体重 / (身高 * 身高)
+// const Mark = {
+//     fullName: "Mark",
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function () {
+//         this.bmi = this.mass / this.height ** 2;
+//         return this.bmi;
+//     }
+// }
 
-    getSummary: function () {
-        this.country = 'CHINA';
-        return `该用户的数据为:
-姓名：${this.name}
-职业：${this.job}
-生日：${this.birthday}
-国籍：${this.country}
-年龄：${this.calcAge()}`;
-    }
+// const John = {
+//     fullName: "John",
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function () {
+//         this.bmi = this.mass / this.height ** 2;
+//         return this.bmi;
+//     }
+// }
 
+// const whoWin = function (mark, john) {
+//     if (mark > john) {
+//         return `${Mark.fullName}'s BMI (${Mark.bmi}) is higher than ${John.fullName}'s (${John.calcBMI()})!`;
+
+//     } else {
+//         return `${John.fullName}'s BMI (${John.bmi}) is higher than ${Mark.fullName}'s (${Mark.calcBMI()})!`;
+//     }
+// }
+
+// console.log(whoWin(Mark.calcBMI(), John.calcBMI()));
+
+//for循环
+// const newAarry = [];
+// const person = {
+//     name: 'AXITEE',
+//     job: 'Rookie Progarmer',
+//     birthday: 1995,
+//     country: 'CHINA',
+//     friends: ['Azoom', 'Leo', '弟弟'],
+//     calcAge: function () {
+//         return new Date().getFullYear() - this.birthday;
+//     }
+// }
+
+// const birthyear = [1991, '2007', 1969, 2020];
+// const age = [];
+// for (let i = 0; i < birthyear.length; i++) {
+//     age.push(new Date().getFullYear() - birthyear[i]);
+//     console.log(age);
+// }
+
+// const whoIsi = ['AXITEE', 'Azoom', 'Leo', '弟弟'];
+// for (let i = 0; i < whoIsi.length; i++) {
+//     if (whoIsi[i] == 'AXITEE') {
+//         console.log(`I am myself!${whoIsi[i]}`);
+//         // break;
+//         continue;
+//     }
+//     console.log(whoIsi[i]);
+// }
+
+//For循环嵌套
+// const aboutMe = [
+//     'AXITEE',
+//     1995,
+//     'Rookie',
+//     ['Azoom', 'Leo', '弟弟'],
+// ];
+
+// for (let i = aboutMe.length - 1; i >= 0; i--) {
+//     console.log(aboutMe[i]);
+// }
+
+// for (let exe = 1; exe < 4; exe++) {
+//     console.log(`-----START-----${exe}`);
+//     for (let rep = 1; rep < 6; rep++) {
+//         console.log(`改组第${rep}次`);
+//     }
+// }
+
+//While循环
+// let dice = Math.trunc(Math.random() * 6 + 1);
+// while (dice != 6) {
+//     console.log(`你的骰子是${dice}!`);
+//     dice = Math.trunc(Math.random() * 6 + 1);
+// }
+// console.log(`🎉恭喜，你猜对了🎉`);
+
+//挑战8
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
 
-console.log(aboutMe.getSummary());
+const calcAverage = function (arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+
+    return sum / arr.length;
+}
+
+let bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+let tips = [];
+let totals = [];
+
+
+for (let i = 0; i < bills.length; i++) {
+    tips.push(calcTip(bills[i]));
+    totals.push(bills[i] + tips[i]);
+    console.log(`你的小费是${tips[i]}! ----- 你的总账单是${totals[i]}!`);
+}
+
+console.log(calcAverage(totals));

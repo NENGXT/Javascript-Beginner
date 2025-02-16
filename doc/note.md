@@ -89,10 +89,13 @@ JavaScript可以用来创建动态的网页，实现交互式功能。
   - 对象的值(value)是对象中存储的数据。又叫属性(property)。
   - 对象可以保存任意类型的数据，包括字符串、数字、布尔值、数组、对象，甚至是函数。
 
+### 📒For循环：
+  - `for` 循环是 JavaScript 中最常用的循环之一，用于重复执行一段代码。
+  - 经常使用 `for` 循环来遍历数组或对象中的元素。
 
-
-
-
+### 📒While循环：
+  - `while` 循环是 JavaScript 中另一种常用的循环之一，用于重复执行一段代码。
+  - `while`和`for`的区别在于它们的执行条件不同。`while`循环通常用于当你不知道循环次数的情况下，直到某个条件为 false 时才停止。
 
 
 
@@ -376,4 +379,75 @@ console.log(`同学，你的考试成绩是${score}分，${message}`);
   - 添加属性到对象中：`对象名.新属性名 = 值;` 或 `对象名['新属性名'] = 值;`
   - 在对象中添加函数：`对象名.新方法名 = function() { ... };` 或 `对象名['新方法名'] = function() { ... };`
   - 在对象中，如果有函数方法的话，可以使用`this.属性名`来访问当前对象的属性。也可以在函数中通过`this.新属性名 = 新值`来添加新的属性。
+
+- **For循环语法:**
+  - `for(循环变量; 条件表达式; 循环体)`：当条件为真时，执行循环体。以下是代码示例：
+  ```js
+  for(let i=1;i<10;i++){
+    console.log(i);
+    //输出: 1, 2, ..., 10
+  }
+  ```
+  - for循环中的循环变量，不可以用`const`，因为`const`只能在声明时赋值，不能在循环中重新赋值。
+  - 想要遍历数组，可以使用 `for` 循环，并且循环终止条件是数组的长度。例如：
+  ```js
+  const nameArray = ['Mark', 'John', 'Jane'];
+  for(let i = 0; i < nameArray.length; i++){
+    console.log(nameArray[i]);
+    //输出: Mark, John, Jane
+  }
+  ```
+  - 在 `for` 循环中，可以使用 `continue` 和 `break` 来控制循环的执行。
+  - `continue`：跳过当前循环的剩余部分，并继续下一次循环。例如：
+  ```js
+  const nameArray = ['Mark', 'John', 'Jane'];
+  for(let i = 0; i < nameArray.length; i++){
+    if(nameArray[i] === 'John'){
+      continue;
+    }
+    console.log(nameArray[i]);
+    //输出: Mark, Jane
+  ```
+  - `break`：终止整个循环。例如：
+  ```js
+  const nameArray = ['Mark', 'John', 'Jane'];
+  for(let i = 0; i < nameArray.length; i++){
+    if(nameArray[i] === 'John'){
+      break;
+    }
+    console.log(nameArray[i]);
+    //输出: Mark
+  ```
+  - **循环嵌套**：一个循环在另一个循环内部。例如：
+  ```js
+  for (let exe = 1; exe < 4; exe++) {
+    console.log(`-----START-----${exe}`);
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`该组第${rep}次`);
+    }
+  }
+  /*输出:
+  -----START-----1
+  该组第1次
+  该组第2次
+  该组第3次
+  该组第4次
+  该组第5次
+  -----START-----2
+  ....
+  */
+  ```
+
+- **While循环语法:**
+  - 基本语法：`while (条件) {执行代码}`
+  - 在不知道循环次数的情况下使用。例如：
+  ```js
+  let dice = Math.trunc(Math.random() * 6 + 1);
+  while (dice != 6) {
+    console.log(`你的骰子是${dice}!`);
+    dice = Math.trunc(Math.random() * 6 + 1);
+  }
+  console.log(`🎉恭喜，你猜对了🎉`);
+  //输出会直到dice等于6为止。
+  ```
 </font>
