@@ -506,3 +506,30 @@ console.log(`同学，你的考试成绩是${score}分，${message}`);
   //输出会直到dice等于6为止。
   ```
   </font>
+
+## DOM 操作
+
+### 什么是 DOM：
+
+DOM 是一种用于与 HTML 和 JavaScript 进行交互的技术，它允许你通过 JavaScript 来修改和控制网页的内容。DOM 提供了多种方法来选择、操作和添加元素到页面中。
+
+JavaScript 能够通过 document 进入 DOM 来访问 HTML。
+基本上，可以把 DOM 看作一个“桥”，用来连接 HTML 和 JavaScript。而 document 相当于“桥”的入口点。
+
+### 选择器（Selectors）：
+
+- `document.querySelector('.类名').该类的属性值`是 DOM 中一种选择器，用于选择具有特定类名的元素。你可以通过这个选择器从 html 中获取到一个或多个元素，并对它们进行操作。
+
+  - `doucument.querySelectorAll('.类名').textContent` 可以返回所有具有该类名的元素的文本内容。
+  - 使用`.textContent = '想要修改的文本'`可以将选定的元素的内容修改为指定的文本。**注意：**如果要将获取的文本内容赋值给一个变量，需要使用 `let`而不是`const`。
+  - `doucument.querySelectorAll('.类名').value` 可以返回所有具有该类名的元素的值属性（即输入框中的内容）。
+  - 当你想要获取和修改的内容属于**表单元素**时，使用 `.value` 属性。
+
+- `doucument.querySelectorAll('.类名').addEventListener`是用于添加事件监听器的方法。它接受两个参数：第一个是要监听的事件类型（例如 `'click'`），第二个是一个回调函数，**当该事件发生时会执行这个回调函数。**
+  - `addEventListener` 的第二个参数的作用是**事件处理程序**，它是你定义的函数，当事件触发时会被调用。以下是一个简单的例子：
+  ```js
+  document.querySelector(".button").addEventListener("click", function () {
+    console.log("按钮被点击了");
+  });
+  ```
+  - 总而言之，`addEventListener('',()=>)` 的第二个参数必须是**Function**，它是你定义的函数，当事件触发时会被调用。
