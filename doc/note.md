@@ -494,8 +494,10 @@ console.log(`同学，你的考试成绩是${score}分，${message}`);
   ```
 
 - **While 循环语法:**
+
   - 基本语法：`while (条件) {执行代码}`
   - 在不知道循环次数的情况下使用。例如：
+
   ```js
   let dice = Math.trunc(Math.random() * 6 + 1);
   while (dice != 6) {
@@ -505,7 +507,12 @@ console.log(`同学，你的考试成绩是${score}分，${message}`);
   console.log(`🎉恭喜，你猜对了🎉`);
   //输出会直到dice等于6为止。
   ```
+
   </font>
+
+- **Math.方法:**
+  - `Math.random()`生成 0 到 1 之间的随机数（不包含 1）
+  - `Math.trunc()` 取整数部分（去掉小数）
 
 ## DOM 操作
 
@@ -520,16 +527,32 @@ JavaScript 能够通过 document 进入 DOM 来访问 HTML。
 
 - `document.querySelector('.类名').该类的属性值`是 DOM 中一种选择器，用于选择具有特定类名的元素。你可以通过这个选择器从 html 中获取到一个或多个元素，并对它们进行操作。
 
-  - `doucument.querySelectorAll('.类名').textContent` 可以返回所有具有该类名的元素的文本内容。
+  - `doucument.querySelectorAll().textContent` 可以返回所有具有该类名的元素的文本内容。
   - 使用`.textContent = '想要修改的文本'`可以将选定的元素的内容修改为指定的文本。**注意：**如果要将获取的文本内容赋值给一个变量，需要使用 `let`而不是`const`。
-  - `doucument.querySelectorAll('.类名').value` 可以返回所有具有该类名的元素的值属性（即输入框中的内容）。
+  - `doucument.querySelectorAll().value` 可以返回所有具有该类名的元素的值属性（即输入框中的内容）。
   - 当你想要获取和修改的内容属于**表单元素**时，使用 `.value` 属性。
+  - 有几种方式可以让 DOM 获取元素：
+    - `document.querySelectorAll('元素ID')`：通过元素的 ID 获取。
+    - `document.querySelectorAll('.类名')`：通过类名获取。
+    - `document.querySelectorAll('标签名')`：通过标签名获取。
 
 - `doucument.querySelectorAll('.类名').addEventListener`是用于添加事件监听器的方法。它接受两个参数：第一个是要监听的事件类型（例如 `'click'`），第二个是一个回调函数，**当该事件发生时会执行这个回调函数。**
+
   - `addEventListener` 的第二个参数的作用是**事件处理程序**，它是你定义的函数，当事件触发时会被调用。以下是一个简单的例子：
+
   ```js
   document.querySelector(".button").addEventListener("click", function () {
     console.log("按钮被点击了");
   });
   ```
+
   - 总而言之，`addEventListener('',()=>)` 的第二个参数必须是**Function**，它是你定义的函数，当事件触发时会被调用。
+
+- `doucument.querySelectorAll('').style.xxx = 'xxx'` 是用来设置元素的样式属性。例如：
+
+```js
+// 设置按钮的背景颜色为红色
+document.querySelector(".button").style.backgroundColor = "red";
+// 设置<body>的背景颜色为绿色
+document.querySelector("body").style.backgroundColor = "green";
+```
