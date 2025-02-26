@@ -28,10 +28,14 @@ btn.addEventListener('click', function () {
   else if (guessInput === secret) {
     message.textContent = '🏆 You win 🏆';
     correctNumber.textContent = secret;
-    highScore += 10;
-    document.querySelector('.highscore').textContent = highScore;
+
     document.querySelector('body').style.backgroundColor = '#60b347';
     correctNumber.style.width = '30rem';
+
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
   }
   //当输入大于设置好的随机数时
   else if (guessInput > secret) {
