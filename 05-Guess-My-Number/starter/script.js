@@ -22,7 +22,7 @@ btn.addEventListener('click', function () {
 
   //当没有输入时
   if (!guessInput) {
-    message.textContent = '⚠️ Please enter a number';
+    message.textContent = 'Please enter a number';
   }
   //当猜对时
   else if (guessInput === secret) {
