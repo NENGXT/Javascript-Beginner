@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /* ----------
 FUNCTION
@@ -110,7 +110,6 @@ FUNCTION
 // console.log(checkWinner(scoreDolphins1, scoreKoalas1));
 // console.log(checkWinner(scoreDolphins2, scoreKoalas2));
 
-
 //数组
 // const year = new Array(2023, 2024, 2025);
 // console.log(year);
@@ -169,26 +168,24 @@ FUNCTION
 // your tips are ${tips}
 // your total is ${totals}`);
 
-
 //对象
 // const aboutMe = {
-//     name: 'AXITEE',
-//     job: 'Rookie Progarmer',
-//     age: new Date().getFullYear() - 1995,
-//     country: 'Japan'
-// }
+//   name: "AXITEE",
+//   job: "Rookie Progarmer",
+//   age: new Date().getFullYear() - 1995,
+//   country: "Japan",
+// };
 
-// const namekey = 'Name';
-// console.log(aboutMe['my' + namekey]);
-// console.log(aboutMe.age);
+// // const namekey = 'Name';
+// // console.log(aboutMe['my' + namekey]);
+// // console.log(aboutMe.age);
 
-// const userKey = prompt('你想知道关于我的什么？');
-
+// // const userKey = prompt('你想知道关于我的什么？');
 
 // if (aboutMe[userKey]) {
-//     console.log(aboutMe[userKey]);
+//   console.log(aboutMe[userKey]);
 // } else {
-//     console.log('你输入的不是正确的信息');
+//   console.log("你输入的不是正确的信息");
 // }
 
 // aboutMe.dream = '过平静且稍微富足的生活';//添加属性1
@@ -203,58 +200,61 @@ FUNCTION
 // const message = `${accout.name} has ${accout.friends.length} friends,his best friend is ${accout.friends[0]}.`;
 // console.log(message);
 
-//对象方法
+// 对象方法
 // const person = {
-//     name: 'AXITEE',
-//     job: 'Rookie Progarmer',
-//     birthday: 1995,
-//     country: 'CHINA',
-//     friends: ['Azoom', 'Leo', '弟弟'],
-//     calcAge: function () {
-//         return new Date().getFullYear() - this.birthday;
-//     },
-//     getSummary: function () {
-//         return `该用户的数据为：
+//   name: "AXITEE",
+//   job: "Rookie Progarmer",
+//   birthday: 1995,
+//   country: "CHINA",
+//   friends: ["Azoom", "Leo", "弟弟"],
+//   calcAge: function () {
+//     return new Date().getFullYear() - this.birthday;
+//   },
+//   getSummary: function () {
+//     return `该用户的数据为：
 // 姓名：${this.name}
 // 职业：${this.job}
 // 年龄：${this.calcAge()}
 // 所在地：${this.country}
-// 好友：${this.friends}`
-//     }
-// }
+// 好友：${this.friends}`;
+//   },
+// };
 
 // console.log(person.getSummary());
 
-//挑战 7
-//BMI = 体重 / (身高 * 身高)
+// 挑战 7
+// BMI = 体重 / (身高 * 身高);
 // const Mark = {
-//     fullName: "Mark",
-//     mass: 78,
-//     height: 1.69,
-//     calcBMI: function () {
-//         this.bmi = this.mass / this.height ** 2;
-//         return this.bmi;
-//     }
-// }
+//   fullName: "Mark",
+//   mass: 78,
+//   height: 1.69,
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
 
 // const John = {
-//     fullName: "John",
-//     mass: 92,
-//     height: 1.95,
-//     calcBMI: function () {
-//         this.bmi = this.mass / this.height ** 2;
-//         return this.bmi;
-//     }
-// }
+//   fullName: "John",
+//   mass: 92,
+//   height: 1.95,
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
 
 // const whoWin = function (mark, john) {
-//     if (mark > john) {
-//         return `${Mark.fullName}'s BMI (${Mark.bmi}) is higher than ${John.fullName}'s (${John.calcBMI()})!`;
-
-//     } else {
-//         return `${John.fullName}'s BMI (${John.bmi}) is higher than ${Mark.fullName}'s (${Mark.calcBMI()})!`;
-//     }
-// }
+//   if (mark > john) {
+//     return `${Mark.fullName}'s BMI (${Mark.bmi}) is higher than ${
+//       John.fullName
+//     }'s (${John.calcBMI()})!`;
+//   } else {
+//     return `${John.fullName}'s BMI (${John.bmi}) is higher than ${
+//       Mark.fullName
+//     }'s (${Mark.calcBMI()})!`;
+//   }
+// };
 
 // console.log(whoWin(Mark.calcBMI(), John.calcBMI()));
 
@@ -316,28 +316,27 @@ FUNCTION
 // console.log(`🎉恭喜，你猜对了🎉`);
 
 //挑战8
-const calcTip = function (bill) {
-    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-}
+// const calcTip = function (bill) {
+//     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// }
 
-const calcAverage = function (arr) {
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        sum += arr[i];
-    }
+// const calcAverage = function (arr) {
+//     let sum = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         sum += arr[i];
+//     }
 
-    return sum / arr.length;
-}
+//     return sum / arr.length;
+// }
 
-let bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-let tips = [];
-let totals = [];
+// let bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// let tips = [];
+// let totals = [];
 
+// for (let i = 0; i < bills.length; i++) {
+//     tips.push(calcTip(bills[i]));
+//     totals.push(bills[i] + tips[i]);
+//     console.log(`你的小费是${tips[i]}! ----- 你的总账单是${totals[i]}!`);
+// }
 
-for (let i = 0; i < bills.length; i++) {
-    tips.push(calcTip(bills[i]));
-    totals.push(bills[i] + tips[i]);
-    console.log(`你的小费是${tips[i]}! ----- 你的总账单是${totals[i]}!`);
-}
-
-console.log(calcAverage(totals));
+// console.log(calcAverage(totals));
