@@ -22,8 +22,18 @@ const toogleModal = function (event) {
 //添加点击事件监听器到所有的show-modal按钮上，当点击时调用toogleModal函数，并传入'hidden'作为参数。
 for (let i = 0; i < btnsShowModal.length; i++) {
   btnsShowModal[i].addEventListener('click', toogleModal);
+  console.log('Button clicked!');
 }
 
+//给关闭按钮增加事件监听器
 btnCloseModal.addEventListener('click', toogleModal);
 
+//给overlay元素添加点击事件监听器
 overlay.addEventListener('click', toogleModal);
+
+//key原来是键盘事件，所以这里使用了event.key来获取按键的名称。
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+    toogleModal();
+  }
+});

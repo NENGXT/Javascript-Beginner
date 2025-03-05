@@ -547,6 +547,7 @@ JavaScript 能够通过 document 进入 DOM 来访问 HTML。
         -   `classList.add(className)`：添加一个类名。
         -   `classList.remove(className)`：移除一个类名。
         -   `classList.toggle(className)`：如果类名存在，则移除；如果不存在，则添加。
+        -   `classList.contains(className)`：检查类名是否存在。
 
 -   **`querySelector`和`querySelectorAll`的区别：**
 
@@ -570,3 +571,5 @@ JavaScript 能够通过 document 进入 DOM 来访问 HTML。
     -   总而言之，`addEventListener('',()=>)` 的第二个参数必须是**Function**，它是你定义的函数，当事件触发时会被调用。
 
     -   想要使`SelectorAll`中的所有元素都添加相同的事件监听器，可以使用 for 循环来遍历这些元素，并为每个元素添加事件监听器。
+
+    -   可以直接在`document`上添加事件监听器，这样所有的元素都会触发这个事件（全局事件）。
