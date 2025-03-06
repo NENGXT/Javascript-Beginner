@@ -543,13 +543,6 @@ JavaScript 能够通过 document 进入 DOM 来访问 HTML。
         document.querySelector("body").style.backgroundColor = "green";
         ```
 
-    -   `.classList` 是一个类列表对象，可以用来操作元素的类名。
-
-        -   `classList.add(className)`：添加一个类名。
-        -   `classList.remove(className)`：移除一个类名。
-        -   `classList.toggle(className)`：如果类名存在，则移除；如果不存在，则添加。
-        -   `classList.contains(className)`：检查类名是否存在。
-
     -   **`querySelector`和`querySelectorAll`的区别：**
 
         -   `querySelector`：匹配的第一个元素。
@@ -558,6 +551,15 @@ JavaScript 能够通过 document 进入 DOM 来访问 HTML。
 -   `getElementById`是 DOM 中另一种选择器，它是通过元素的 `id` 属性来选择的。
 
     -   使用`getElementById`时，不需要 **#** 号。
+
+-   `.classList` 是一个类列表对象，可以用来操作元素的类名。
+
+    -   `classList.add(className)`：添加一个类名。
+    -   `classList.remove(className)`：移除一个类名。
+    -   `classList.toggle(className)`：如果类名存在，则移除；如果不存在，则添加。
+    -   `classList.contains(className)`：检查类名是否存在。
+
+-   `.src` 是一个属性，可以用来设置或获取元素的源文件路径。
 
 -   **通常在 JavaScript 中操控页面时，最好给这个元素添加一个要被操作的单独的类名，这样可以方便地进行样式控制和事件处理。**
 
