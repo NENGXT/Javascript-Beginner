@@ -580,3 +580,87 @@ JavaScript 能够通过 document 进入 DOM 来访问 HTML。
     -   想要使`SelectorAll`中的所有元素都添加相同的事件监听器，可以使用 for 循环来遍历这些元素，并为每个元素添加事件监听器。
 
     -   可以直接在`document`上添加事件监听器，这样所有的元素都会触发这个事件（全局事件）。
+
+## 关键字
+
+### this
+
+-   `this` 表示当前执行上下文的调用者，也就是“谁调用我，我就指向谁”。
+-   `this` 的值会随着函数的调用方式而变化。下面是一些常见的场景：
+
+| 场景             | this 指向                                    |
+| ---------------- | -------------------------------------------- |
+| **普通函数调用** | 全局对象（在浏览器中是 `window`）            |
+| **对象方法调用** | 调用该方法的对象                             |
+| **构造函数中**   | 新创建的实例对象                             |
+| **箭头函数**     | 没有自己的 `this`，会继承外层作用域的 `this` |
+| **事件监听器中** | 默认指向绑定事件的元素（如按钮等）           |
+
+#### ✅ 示例说明：
+
+```js
+// 1. 普通函数调用
+function showThis() {
+    console.log(this);
+}
+showThis(); // 浏览器中输出：window
+
+// 2. 对象方法调用
+const person = {
+    name: "AXITEE",
+    greet() {
+        console.log(this.name);
+    },
+};
+person.greet(); // 输出：AXITEE
+
+// 3. 构造函数
+function Person(name) {
+    this.name = name;
+}
+const p = new Person("AXITEE");
+console.log(p.name); // 输出：AXITEE
+
+// 4. 箭头函数
+const obj = {
+    name: "AXITEE",
+    greet: () => {
+        console.log(this.name); // this 不指向 obj，而是继承自外层（例如 window）
+    },
+};
+obj.greet(); // 输出：undefined
+
+// 5. 事件监听器
+document.querySelector("button").addEventListener("click", function () {
+    console.log(this); // this 指向被点击的 button 元素
+});
+```
+
+### arguments
+
+-   `arguments` 是一个**类数组对象**，包含函数调用时传入的所有参数。
+-   它只在 **普通函数（非箭头函数）** 中有效。
+-   通常用于**不确定传入参数个数时**，对所有参数进行处理。
+-   从 ES6 开始，更推荐使用 `...rest` 参数来代替 `arguments`，因为 rest 更加直观并且是标准数组。
+
+#### ✅ 示例说明：
+
+```js
+function sumAll() {
+    let total = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        total += arguments[i];
+    }
+    return total;
+}
+console.log(sumAll(1, 2, 3, 4)); // 输出：10
+```
+
+#### ✅ 推荐替代写法（ES6）：
+
+```js
+function sumAll(...nums) {
+    return nums.reduce((a, b) => a + b, 0);
+}
+console.log(sumAll(1, 2, 3, 4)); // 输出：10
+```
