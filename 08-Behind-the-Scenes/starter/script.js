@@ -95,42 +95,73 @@
 
 //常规函数 VS 箭头函数：
 
-const AXITEE = {
-  firstName: 'AXITEE',
-  birthyear: 1995,
-  age: function () {
-    console.log(this.birthyear);
+// const AXITEE = {
+//   firstName: 'AXITEE',
+//   birthyear: 1995,
+//   age: function () {
+//     console.log(this.birthyear);
 
-    // 解决在 age 方法中使用 this 的问题1
-    // const self = this;
-    // const adult = function () {
-    //   if (self.birthyear >= 18) {
-    //     console.log('You are an adult');
-    //   }
-    // };
-    // adult();
+//     // 解决在 age 方法中使用 this 的问题1
+//     // const self = this;
+//     // const adult = function () {
+//     //   if (self.birthyear >= 18) {
+//     //     console.log('You are an adult');
+//     //   }
+//     // };
+//     // adult();
 
-    // 解决在 age 方法中使用 this 的问题2
-    const adult = () => {
-      if (this.birthyear >= 18) {
-        console.log('You are an adult');
-      }
-    };
-    adult();
-  },
+//     // 解决在 age 方法中使用 this 的问题2
+//     const adult = () => {
+//       if (this.birthyear >= 18) {
+//         console.log('You are an adult');
+//       }
+//     };
+//     adult();
+//   },
 
-  greet: () => {
-    console.log(`Hello, my name is ${this.firstName}`);
-  },
+//   greet: () => {
+//     console.log(`Hello, my name is ${this.firstName}`);
+//   },
+// };
+
+// AXITEE.greet(); // 输出：Hello, my name is undefined,因为箭头函数没有自己的 this 值。
+// AXITEE.age();
+
+// //Augment 关键字：
+// const addExpor = function (a, b) {
+//   console.log(arguments);
+//   return a + b;
+// };
+
+// addExpor(2, 5);
+
+//对象参考和深拷贝
+
+const jessica1 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
 };
 
-AXITEE.greet(); // 输出：Hello, my name is undefined,因为箭头函数没有自己的 this 值。
-AXITEE.age();
+const marriedJessica = jessica1;
+marriedJessica.lastName = 'Davis';
+// console.log(jessica);
+//为什么输出的是 Davis，而不是 Williams？因为 marriedJessica 是一个引用，它指向了 jessica 对象的内存地址。所以当 marriedJessica 修改 lastName 的值时，jessica 也会跟着改变。
 
-//Augment 关键字：
-const addExpor = function (a, b) {
-  console.log(arguments);
-  return a + b;
+//浅拷贝：
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
 };
 
-addExpor(2, 5);
+//使用...操作符进行浅拷贝
+const jessicaCopy = { ...jessica2 };
+jessicaCopy.lastName = 'Davis';
+
+//深拷贝：
+// const jessicaDeepCopy = JSON.parse(JSON.stringify(jessica2));
+const jessicaDeepCopy = structuredClone(jessica2); //推荐使用structuredClone，因为它更安全
+jessicaDeepCopy.family.push('Charlie', 'David');
+console.log(jessica2, jessicaDeepCopy);
