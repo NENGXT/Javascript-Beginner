@@ -44,4 +44,40 @@ const restaurant = {
       close: 24,
     },
   },
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
+
+//数组解构
+const arry = [1, 2, 3, 4];
+const [a, b, c, d] = arry;
+console.log(a, b, c, d);
+
+let [main, , sub] = restaurant.categories;
+console.log(main, sub);
+
+// const temp = main;
+// main = sub;
+// sub = temp;
+// console.log(main, sub);
+
+[sub, main] = [main, sub];
+console.log(main, sub);
+
+//如何交换和接受两个变量的值
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse); // Pasta Pizza
+
+//嵌套
+const nested = [1, [2, 3], 4];
+const [, i, j] = nested;
+console.log(i, j);
+
+const [, [x, y], z] = nested;
+console.log(x, y, z);
+
+//默认值
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r); // 8 9 1

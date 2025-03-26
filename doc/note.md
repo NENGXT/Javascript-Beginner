@@ -664,3 +664,54 @@ function sumAll(...nums) {
 }
 console.log(sumAll(1, 2, 3, 4)); // 输出：10
 ```
+
+## 数据结构、现代运算符与字符串
+
+### 数组解构
+
+数组解构是一种可以从数组中提取值，并将其赋值给变量的简洁语法。这是 ES6 引入的一种特性，使得代码更加简洁和可读。
+
+#### 语法
+
+可以使用以下语法来进行数组解构：
+
+```javascript
+const [变量1, 变量2, ...其余变量] = 数组;
+```
+
+通过这一方式，你可以快速将数组中的值分配给对应的变量。例如：
+
+```javascript
+const fruits = ["apple", "banana", "cherry"];
+const [firstFruit, secondFruit] = fruits;
+
+console.log(firstFruit); // 输出: 'apple'
+console.log(secondFruit); // 输出: 'banana'
+```
+
+在上面的例子中，`firstFruit` 和 `secondFruit` 分别被赋值为数组 `fruits` 中的两个元素 `'apple'` 和 `'banana'`。
+
+#### 高级用法
+
+1. **默认值**
+   如果数组中的元素少于变量的数量，可以给变量赋予默认值：
+
+    ```javascript
+    const [x, y] = [10];
+    console.log(x); // 输出: 10
+    console.log(y); // 输出: undefined
+
+    const [x = 1, y = 1, z = 1] = [10];
+    console.log(x, y, z); // 输出: 10,1,1
+    ```
+
+2. **跳过元素**
+   可以通过在逗号间留下空位来跳过数组中的某些元素：
+
+    ```javascript
+    const numbers = [1, 2, 3];
+    const [, , thirdNumber] = numbers;
+    console.log(thirdNumber); // 输出: 3
+    ```
+
+数组解构是提升代码可读性和简洁度的有力工具，尤其是在处理复杂的数据结构时。
