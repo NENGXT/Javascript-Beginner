@@ -199,3 +199,26 @@ After checking the result, change the population temporarily to 13 and then to 1
 //         ? `${conunty}'s population is above 33`
 //         : `${conunty}'s population is below 33`;
 // console.log(isLargePopulation);
+
+/*
+Write a function called describeCountry which takes three parameters: country, population and capitalCity. Based on this input, the function returns a string with this format: 'Finland has 6 million people and its capital city is Helsinki'.
+编写一个名为 describeCountry 的函数，该函数接受三个参数： country 、 population 和 capitalCity 。根据这些输入，函数返回一个格式为 'Finland has 6 million people and its capital city is Helsinki' 的字符串。
+
+Call this function 3 times, with input data for 3 different countries. Store the returned values in 3 different variables, and log them to the console.
+调用此函数 3 次，使用 3 个不同国家的输入数据。将返回的值存储在 3 个不同的变量中，并将它们记录到控制台。
+*/
+
+// const describeCountry = function (country, population, capitalCity) {
+//     return `${country} has ${population} million people and its capital city is ${capitalCity}`;
+// };
+
+// const countries = {
+//     China: describeCountry("China", 1400, "Beijing"),
+//     Japan: describeCountry("Japan", 120, "Tokyo"),
+//     Korea: describeCountry("Korea", 50, "Seoul"),
+// };
+
+// let { China, Japan, Korea } = countries;
+// console.log(China);
+// console.log(Japan);
+// console.log(Korea);
