@@ -1,3 +1,26 @@
+// 获取需要切换类名的元素
+const balloon = document.querySelector(".from-left");
+
+// 创建媒体查询监听器
+const mediaQuery = window.matchMedia("(max-width: 1200px)");
+
+// 切换类名的函数
+function handleWindowChange(e) {
+    if (e.matches) {
+        // 当窗口宽度 <= 1200px
+        balloon.classList.remove("from-left");
+    } else {
+        // 当窗口宽度 > 1200px
+        balloon.classList.add("from-left");
+    }
+}
+
+// 添加监听器
+mediaQuery.addListener(handleWindowChange);
+
+// 初始检查
+handleWindowChange(mediaQuery);
+
 /*
 1.声明名为 country 、 continent 和 population 的变量，并根据您自己国家的值（以百万为单位的人口）赋值。
 将它们的值记录到控制台。
@@ -77,3 +100,102 @@ prompt('How many neighbour countries does your contry have?');
 // } else {
 //     alert("No borders");
 // }
+
+/*
+Comment out the previous code so the prompt doesn't get in the way.
+注释掉之前的代码，以免提示干扰。
+
+Let's say Sarah is looking for a new country to live in. She wants to live in a country that speaks English, has less than 50 million people and is not an island.
+假设莎拉正在寻找一个新的居住国家。她想住在一个讲英语、人口少于 5000 万且不是岛屿的国家。
+
+Write an if statement to help Sarah figure out if your country is right for her. You will need to write a condition that accounts for all of Sarah's criteria. Take your time with this, and check part of the solution if necessary.
+写一个 if 语句来帮助莎拉判断你的国家是否适合她。你需要写一个考虑到莎拉所有标准的条件。慢慢来，如果有必要，可以检查部分解决方案。
+
+If yours is the right country, log a strings like this 'You should live in Portugal :)'. If not, log 'Portugal does not meet your criteria :('.
+如果你的国家是合适的，记录一个字符串像这样 'You should live in Portugal :)' 。如果不是，记录 'Portugal does not meet your criteria :(' 。
+
+Probably your country does not meet all the criteria. So go back and temporarily change some variables in order to make the condition true (unless you live in Canada :D).
+可能你的国家不符合所有标准。所以返回去暂时更改一些变量以使条件为真（除非你住在加拿大 :D）。
+*/
+
+// const livingPlace = {
+//     conunty: "China",
+//     language: "Chinese",
+//     population: 1400,
+//     isIsland: false,
+// };
+
+// let { language, population, isIsland } = livingPlace;
+
+// if (language === "English" && population < 50 && isIsland) {
+//     console.log("You should live in China :)");
+// } else {
+//     console.log("China does not meet your criteria :(");
+// }
+
+/*
+Use a switch statement to log the following string for the given language:
+使用 switch 语句记录以下字符串以获取给定的 language :
+
+chinese or mandarin: 'MOST number of native speakers!';
+中文或普通话: 'MOST number of native speakers!' ;
+
+spanish: '2nd place in number of native speakers';  
+西班牙语: '2nd place in number of native speakers' ;
+
+english: '3rd place';  
+英语: '3rd place' ;
+
+hindi: 'Number 4';  
+印地语: 'Number 4' ;
+
+arabic: '5th most spoken language';  
+阿拉伯语: '5th most spoken language' ;
+
+for all other simply log 'Great language too :D'.
+对于所有其他，只需记录 'Great language too :D' .
+*/
+
+// let language = "Japan";
+// switch (language) {
+//     case "Chinese":
+//         console.log("MOST number of native speakers!");
+//         break;
+//     case "Spanish":
+//         console.log("2nd place in number of native speakers");
+//         break;
+//     case "English":
+//         console.log("3rd place");
+//         break;
+//     case "Hindi":
+//         console.log("Number 4");
+//         break;
+//     case "Arabic":
+//         console.log("5th most spoken language");
+//         break;
+//     default:
+//         console.log("Great language too :D");
+//         break;
+// }
+
+/*
+If your country's population is greater than 33 million, use the ternary operator to log a string like this to the console: "Portugal's population is above average". Otherwise, simply log "Portugal's population is below average". Notice how only one word change between these two sentences!
+如果你所在国家的人口超过 3300 万，请使用三元运算符将类似这样的字符串记录到控制台： "Portugal's population is above average" 。否则，只需记录 "Portugal's population is below average" 。注意这两句话之间只有一个单词的变化！
+
+After checking the result, change the population temporarily to 13 and then to 130. See the different results, and set the population back to original.
+检查结果后，暂时将人口更改为 13，然后更改为 130。查看不同的结果，并将人口设置回原始值。
+*/
+
+// const livingPlace = {
+//     conunty: "China",
+//     language: "Chinese",
+//     population: 1400,
+//     isIsland: false,
+// };
+
+// let { conunty, population } = livingPlace;
+// const isLargePopulation =
+//     population > 33
+//         ? `${conunty}'s population is above 33`
+//         : `${conunty}'s population is below 33`;
+// console.log(isLargePopulation);

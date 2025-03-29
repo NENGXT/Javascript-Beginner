@@ -747,3 +747,84 @@ console.log(secondFruit); // 输出: 'banana'
     ```
 
 数组解构是提升代码可读性和简洁度的有力工具，尤其是在处理复杂的数据结构时。
+
+### 对象解构
+
+对象解构和数组解构一样，是一种可以从对象中提取值，并将其赋值给变量的简洁语法。
+
+#### 语法
+
+可以使用以下语法来进行对象解构：
+
+```javascript
+const { 变量1, 变量2, ...其余变量 } = 对象;
+//变量名需要和对象中的属性名一致。
+```
+
+如果想要使用不同的变量名，可以使用冒号来重命名：
+
+```javascript
+const retaurant = {
+    name: "The Restaurant",
+    location: "Tokyo",
+};
+const { name: restaurantName } = restaurant;
+```
+
+如果想要在对象中添加默认值，可以在属性后面加上一个等于号和默认值：
+
+```javascript
+const person = {
+    name: "John",
+    age: 25,
+    city: "New York",
+};
+const { name: personName, country = [] } = person;
+```
+
+对象的变量交换可以通过解构赋值来实现。例如，将两个对象的属性交换：
+
+```javascript
+//对象的变量交换
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj);
+//在 JavaScript 中，如果你直接写 { a, b } = obj;，会被当成一个代码块（block statement），导致语法错误。
+```
+
+对于带有嵌套结构的对象，可以参考以下的例子：
+
+```javascript
+const person = {
+    name: "John",
+    age: 25,
+    address: {
+        city: "New York",
+        zipCode: "10001",
+    },
+};
+const {
+    address: { city, zipCode },
+} = person;
+console.log(city, zipCode);
+```
+
+在函数的参数中，直接解构一个对象并给里面的属性赋值，可以参考以下的例子：
+
+```javaScript
+const person = {
+    name: "John",
+    age: 25,
+    address: function({city,country}){
+        console.log(`I live in ${country} and ${city}`);//会输出"I live in Japan and Tokyo"
+    }
+}
+
+const address = {
+    city: "Tokyo",
+    country: "Japan",
+};
+person.address(address);
+```
