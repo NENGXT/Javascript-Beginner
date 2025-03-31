@@ -196,17 +196,125 @@ const restaurant = {
 // console.log(workDays);
 
 //函数解构
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  // console.log(sum);
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   // console.log(sum);
+// };
+
+// const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
+
+//&& 和 ||
+// console.log(3 || 'hello'); // hello
+// console.log(false || 'hello'); // hello
+// console.log('' || 'hello'); // hello
+
+// restaurant.numGuests = 23;
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest1);
+
+// const guest2 = restaurant.numGuests || 10;
+// console.log(guest2);
+
+// console.log(7 && 'hello'); // hello
+//&&的实际例子
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('apple', 'banana', 'cherry');
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza('apple', 'banana', 'cherry');
+
+//??空值合并运算符的用法
+// restaurant.numGuest = 0;
+// const guests = restaurant.numGuest ?? 10;
+// console.log(guests); // 0
+
+// const guestCount = restaurant.numGuest ?? 20;
+// console.log(guestCount);
+
+/*-------
+逻辑赋值运算符（Logical Assignment Operators）
+-------*/
+// const rest1 = {
+//   name: '华莱士',
+//   numGuests: 0,
+// };
+
+// const rest2 = {
+//   name: 'サイゼリヤ',
+//   owner: 'joruno josta',
+// };
+
+// ||= 运算符
+
+// rest1.numGuests ||= 10;
+// console.log(rest1); // {name: '华莱士', numGuests: 20}
+
+// rest2.numGuests ||= 10;
+// console.log(rest2); // {name: 'サイゼリヤ', owner: 'joruno josta', numGuests: 10}
+
+// ??= 运算符
+
+// rest1.numGuests ??= 10;
+// rest2.nameGuests ??= 10;
+
+// &&= 运算符
+// rest1.owner &&= ';';
+// rest2.owner &&= ';';
+
+//题目代码
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
 };
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
-
-const x = [23, 5, 7];
-add(...x);
-
-restaurant.orderPizza('mushrooms', 'onions', 'olives', 'spinach');
+//1.
+const [players1, players2] = game.players;
+//2.
+const [gk, ...fieldPlayers] = players1;
+//3.
+const allPlayers = [...players1, ...players2];
+//4.

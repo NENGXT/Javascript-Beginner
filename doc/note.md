@@ -87,11 +87,12 @@ JavaScript 可以用来创建动态的网页，实现交互式功能。
 
 #### 🔹 其他常见运算符
 
--   **逻辑运算符**（布尔逻辑那一节已有，可参考）
+-   **逻辑运算符**
 
     -   `&&` 与
     -   `||` 或
     -   `!` 非
+    -   `??` 空值合并运算符
 
 -   **展开运算符（Spread）**
     -   `{ ...obj }`：复制对象（浅拷贝）
@@ -852,3 +853,84 @@ console.log(a, b, others); //1 2 [3,4,5]
 ```
 
 **通过`...`收集剩余的元素时，必须保证它是在数组的最后一个参数上。**
+
+### 深入了解`&&`和`||`
+
+逻辑运算符，除了可以用于布尔值比较和条件判断，还可以做短路求值。
+
+-   `||`：会返回第一个真值，如果两个都是假值，则返回最后一个假值。如果两个值都为真值，则返回第一个真值。
+
+```javascript
+console.log(3 || "hello"); // 3
+console.log("" || "hello"); // hello
+```
+
+```javascript
+//常见用途：给变量设置默认值。
+const userName = "" || "Guest";
+console.log(userName); // "Guest" ✅ 如果 `""` 是空字符串，使用默认值。
+```
+
+-   `&&`：如果左侧为 false，直接返回左侧值，否则返回右侧值。
+
+```javascript
+console.log(3 && "hello"); //返回 "hello"
+console.log(false && "hello"); // 返回 false
+console.log("" && "hello"); // 返回 ""
+```
+
+```javascript
+//常见用途，判断条件是否满足
+const isLoggedIn = true;
+isLoggedIn && console.log("Welcome!"); // ✅ "Welcome!"  (执行 `console.log`)
+
+const isMember = false;
+isMember && console.log("You have access!"); // ❌ 不执行（因为 isMember 是 false）
+```
+
+### `??`空值合并运算符的用法
+
+作用：当左侧是 null 或 undefined 时，返回右侧值；否则返回左侧值。
+
+`??`可以有效避免 0 和""被视为 false 的情况。例如：
+
+```javascript
+const num = 0;
+console.log(num ?? 1); //0
+```
+
+### 逻辑赋值运算符（Logical Assignment Operators）
+
+ES2021 引入了 三种逻辑赋值运算符，用于简化 &&、|| 和 ?? 的赋值逻辑。
+
+-   `||=`或赋值运算符：如果左边的值为假值，则将右边的值赋给左边。例如：
+
+```javascript
+const person = {
+    personName: "AXITEE",
+    age: 20,
+    gender: "male",
+};
+person.country ||= "China";
+console.log(person.country); // 输出：China
+```
+
+-   `??=`空值合并赋值运算符：与`??`相同，当左边的值为 null 或者 undefined 时，将右边的值赋给左边（不包含 0）。例如：
+
+```javascript
+const musicList = {
+    name: "Scary Monster",
+    artists: "Skrillex",
+    fllowers: 0,
+};
+musicList.fllowers ??= 10;
+console.log(musicList.fllowers); //输出0
+```
+
+-   `&&=` 运算符：与`&&`相同，如果左侧的值为假，则不执行右侧的代码，如果左侧的值为真，则执行右侧的代码。
+
+```javascript
+let a = 1;
+a &&= 2; // a 现在是 2
+console.log(a); // 输出 2
+```
