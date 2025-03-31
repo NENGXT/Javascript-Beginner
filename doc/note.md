@@ -828,3 +828,27 @@ const address = {
 };
 person.address(address);
 ```
+
+### 扩展运算符`...`
+
+扩展运算符（Spread Operator）`...` 主要用于数组、对象和函数参数的展开，提供了一种简洁的方式来操作数据。
+
+```javascript
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+```
+
+### Rest Pattern（剩余模式）和 Rest Parameters（剩余参数）
+
+作用：使用`...展开变量名`用于数组解构和对象解构，将剩余的值收集成一个数组或对象。
+
+```javascript
+const arr = [1, 2, 3, 4, 5];
+const [a, b, ...others] = arr;
+console.log(a, b, others); //1 2 [3,4,5]
+```
+
+**通过`...`收集剩余的元素时，必须保证它是在数组的最后一个参数上。**

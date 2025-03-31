@@ -9,6 +9,7 @@
       body {
         height: 100vh;
         display: flex;
+        flex-direction: column;
         align-items: center;
         background: linear-gradient(to top left, #28b487, #7dd56f);
       }
@@ -22,18 +23,40 @@
         color: white;
       }
       button {
-        width: 50px;
-        height: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        max-width: 50%;
+        height: 30px;
         margin: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      button:hover {
+        background-color: #28b487;
+        color: #ccc;
       }
       textarea {
         width: 300px;
         height: 100px;
       }
+      #input {
+        max-width: 50%;
+        height: 30px;
+        margin: 10px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
     </style>
   </head>
   <body>
     <h1>Data Structures and Modern Operators</h1>
+    <input type="text" id="input" placeholder="Enter your message here:)" />
+    <button class="btn">Submit</button>
     <script src="script.js"></script>
   </body>
 </html>
