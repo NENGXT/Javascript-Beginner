@@ -222,3 +222,102 @@ Call this function 3 times, with input data for 3 different countries. Store the
 // console.log(China);
 // console.log(Japan);
 // console.log(Korea);
+
+/*
+
+The world population is 7900 million people. Create a function declaration called percentageOfWorld1 which receives a population value, and returns the percentage of the world population that the given population represents. For example, China has 1441 million people, so it's about 18.2% of the world population.
+世界人口为 79 亿人。创建一个名为 percentageOfWorld1 的函数声明，该函数接收一个 population 值，并返回该人口占世界人口的百分比。例如，中国有 14.41 亿人，因此约占世界人口的 18.2%。
+
+To calculate the percentage, divide the given population value by 7900 and then multiply by 100.
+要计算百分比，将给定的 population 值除以 7900，然后乘以 100。
+
+Call percentageOfWorld1 for 3 populations of countries of your choice, store the results into variables, and log them to the console.
+调用 percentageOfWorld1 ，针对您选择的 3 个人口国家，存储结果到变量中，并将其记录到控制台。
+
+Create a function expression which does the exact same thing, called percentageOfWolrd2, and also call it with 3 country populations (can be the same populations).
+创建一个函数表达式，执行完全相同的操作，命名为 percentageOfWolrd2 ，并使用 3 个国家的人口（可以是相同的人口）调用它。
+
+Recreate the last assignment, but this time create an arrow function called percentageOfWorld3.
+重新创建上一个作业，但这次创建一个名为 percentageOfWorld3 的箭头函数。
+*/
+
+// const [china, japan, us] = [1441, 126, 332];
+
+// const percentageOfWorld1 = function (...population) {
+//     let average = 0;
+//     for (let i = 0; i < population.length; i++) {
+//         average = (population[i] / 7900) * 100;
+//         console.log(average);
+//     }
+// };
+
+// function percentageOfWolrd2(...population) {
+//     let average = 0;
+//     for (let i = 0; i < population.length; i++) {
+//         average = (population[i] / 7900) * 100;
+//         console.log(average);
+//     }
+// }
+// const percentageOfWolrd3 = (...population) => {
+//     let average = 0;
+//     for (let i = 0; i < population.length; i++) {
+//         average = (population[i] / 7900) * 100;
+//         console.log(average);
+//     }
+// };
+
+// percentageOfWorld1(china, japan, us);
+// percentageOfWolrd2(china, japan, us);
+// percentageOfWolrd3(china, japan, us);
+
+/*----------分割线----------*/
+
+/*
+Create a function called describePopulation. Use the function type you like the most. This function takes in two arguments: country and population, and returns a strings like this: 'China has 1441 million people, which is about 18.2% of the world'.
+创建一个名为 describePopulation 的函数。使用你最喜欢的函数类型。这个函数接受两个参数： country 和 population ，并返回一个字符串，如下所示： 'China has 1441 million people, which is about 18.2% of the world' 。
+
+To calculate the percentage, describePopulation calls the percentageOfWorld1 you created earlier.
+为了计算百分比， describePopulation 调用你之前创建的 percentageOfWorld1 。
+
+Call describePopulation with data for 3 countries of your choice.
+使用你选择的 3 个国家的数据调用 describePopulation 。
+*/
+
+// const percentageOfWorld1 = function (population1) {
+//     let average = (population1 / 7900) * 100;
+//     return average;
+// };
+
+// const describePopulation = (country, population) => {
+//     return `${country} 有 ${population} 百万人口，占世界总人口的约 ${percentageOfWorld1(
+//         population
+//     )}%`;
+// };
+
+// console.log(describePopulation("中国", 1400));
+
+/*----------分割线----------*/
+/*
+Create an array containing 4 population values of 4 countries of your choice. You may use the values you have been using previously. Store this array into a variable called populations.
+创建一个包含您选择的 4 个国家的 4 个人口值的数组。您可以使用之前使用的值。将此数组存储到一个名为 populations 的变量中。
+
+Log to the console whether the array has 4 elements or not (true or false).
+在控制台记录数组是否有 4 个元素（ true 或 false ）。
+
+Create an array called percentages containing the percentages of the world population for these 4 population values. Use the function percentageOfWorld1 that you created earlier to compute the 4 percentage values.
+创建一个名为 percentages 的数组，包含这 4 个人口值的世界人口百分比。使用您之前创建的函数 percentageOfWorld1 来计算这 4 个百分比值。
+*/
+
+// const percentageOfWorld1 = function (...population1) {
+//     let arr = [];
+//     for (let i = 0; i < population1.length; i++) {
+//         arr.push((population1[i] / 7900) * 100);
+
+//         // console.log(average);
+//     }
+//     return arr;
+// };
+
+// const populations = [1441, 126, 332, 500];
+// const percentages = percentageOfWorld1(...populations);
+// console.log(percentages);

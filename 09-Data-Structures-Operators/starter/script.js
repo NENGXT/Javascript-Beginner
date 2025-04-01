@@ -318,3 +318,20 @@ const [gk, ...fieldPlayers] = players1;
 //3.
 const allPlayers = [...players1, ...players2];
 //4.
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+//5.
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(draw);
+//6.
+const printGoals = function (...palyerName) {
+  console.log(`${palyerName.length} goals were scored`);
+  // console.log(palyerName.length);
+};
+// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals(...game.scored);
+
+//7.
+team1 < team2 && console.log('`team1 will be the winner`');
+team1 > team2 && console.log('`team2 will be the winner`');

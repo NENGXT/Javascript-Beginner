@@ -24,6 +24,8 @@
 7. **确定哪支球队更可能获胜**：
     - **不使用 `if/else` 语句或三元运算符**，在控制台中打印**最有可能获胜的球队**（即赔率最低的球队）。
 
+-   测试数据 6：使用球员 ‘Davies’、‘Muller’、‘Lewandowski’ 和 ‘Kimmich’。然后，再次调用函数，传入来自 game.scored 的球员。
+
 ```javascript
 //题目代码
 const game = {
