@@ -30,6 +30,21 @@ const mexicanFoods = new Set([
   'avocado',
   'garlic',
 ]);
+const weekDays = ['mon', 'tus', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekDays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekDays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekDays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 
 // Data needed for first part of the section
 const restaurant = {
@@ -39,26 +54,13 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  openingHours,
 
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({
+  orderDelivery({
     time = '21:00',
     address,
     mainIndex = '0',
@@ -69,11 +71,11 @@ const restaurant = {
     );
   },
 
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`这是你的意大利面，配料有：${ing1}, ${ing2}, ${ing3}`);
   },
 
-  orderPizza: function (mainIng, ...otherIng) {
+  orderPizza(mainIng, ...otherIng) {
     console.log(`The main ingredients is ${mainIng}`);
     console.log(`The other ingredients are ${otherIng}`);
   },
@@ -269,69 +271,115 @@ const restaurant = {
 // rest1.owner &&= ';';
 // rest2.owner &&= ';';
 
-//题目代码
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// //题目代码
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-//1.
-const [players1, players2] = game.players;
-//2.
-const [gk, ...fieldPlayers] = players1;
-//3.
-const allPlayers = [...players1, ...players2];
-//4.
-const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
-//5.
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
-console.log(draw);
-//6.
-const printGoals = function (...palyerName) {
-  console.log(`${palyerName.length} goals were scored`);
-  // console.log(palyerName.length);
-};
-// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
-printGoals(...game.scored);
+// //1.
+// const [players1, players2] = game.players;
+// //2.
+// const [gk, ...fieldPlayers] = players1;
+// //3.
+// const allPlayers = [...players1, ...players2];
+// //4.
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+// //5.
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(draw);
+// //6.
+// const printGoals = function (...palyerName) {
+//   console.log(`${palyerName.length} goals were scored`);
+//   // console.log(palyerName.length);
+// };
+// // printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoals(...game.scored);
 
-//7.
-team1 < team2 && console.log('`team1 will be the winner`');
-team1 > team2 && console.log('`team2 will be the winner`');
+// //7.
+// team1 < team2 && console.log('`team1 will be the winner`');
+// team1 > team2 && console.log('`team2 will be the winner`');
+
+//for-of Loop
+
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// for (const item of menu) {
+//   // console.log(item);
+// }
+// for (const item of menu.entries()) {
+//   // console.log(`${item[0] + 1}: ${item[1]}`);
+// }
+// for (const [num, item] of menu.entries()) {
+//   // console.log(`${num + 1}: ${item}`);
+// }
+
+//?.
+
+// console.log(restaurant.openingHours.mon?.open);
+// const person = {
+//   name: 'kuma',
+//   age: 30,
+// };
+// console.log(person.country?.area);
+
+for (const day of weekDays) {
+  // console.log(day?.openingHours?.open);
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  // console.log(`On ${day}, we open at ${open}`);
+}
+
+// console.log(restaurant.order?.(0, 1) ?? 'No order available');
+
+// const arr = [1, 2, 3, 4, 5];
+// console.log(arr[0]?.name ?? 'error');
+
+//遍历
+//遍历对象的key
+const workDays = Object.keys(openingHours);
+let openStr = `我们的餐厅一周营业${workDays.length}天`;
+
+for (const day of Object.keys(openingHours)) {
+  openStr += `${day},`;
+}
+// console.log(openStr);
+
+//遍历对象的values
+const values = Object.values(openingHours);

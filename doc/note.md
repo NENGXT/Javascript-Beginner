@@ -934,3 +934,103 @@ let a = 1;
 a &&= 2; // a 现在是 2
 console.log(a); // 输出 2
 ```
+
+### `for-of`循环
+
+是一种更简洁的方式来遍历数组或字符串中的每个元素。它不需要显式地使用索引，而是直接访问每个元素。以下是一个简单的示例：
+
+```javascript
+const num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (const i of num) {
+    console.log(i);
+}
+// Output: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+```
+
+如果需要访问元素的索引，可以使用 `entries()` 方法。它返回一个包含键值对的数组，其中键是元素的索引，值是元素本身。例如：
+
+```javascript
+const num = [1, 2, 3];
+for (const i of num.entries()) {
+    console.log(i);
+}
+// Output: [0, 1], [1, 2], [2, 3]
+```
+
+### 对象字面量（ES6）
+
+ES6 新增的编写对象字面量时的三种方式：
+
+-   通过变量名创建属性：
+
+```javascript
+const person ={
+    name: "kuma";
+    age: 25;
+};
+const personList ={
+    kuma, // 等价于 personList = {kuma: kuma}
+}
+```
+
+-   在对象内不需要写`function`关键字就可创造函数：
+
+```javascript
+const person={
+    name:"kuma",
+    age:25,
+    sayHi:(){
+        console.log('hi');
+    }
+}
+```
+
+-   可以使用方括号 [] 包裹表达式，动态计算属性名。这使得对象的键（key）可以基于变量或表达式的值自动生成。
+
+```javascript
+const voters = ["Bob", "Alice", "Charlie"];
+const votes = {
+    [voters[0]]: "Yes",
+    [voters[1]]: "No",
+    [voters[2]]: "Maybe",
+};
+console.log(votes); // { Bob: 'Yes', Alice: 'No', Charlie: 'Maybe' }
+```
+
+### 可选链`?.`
+
+可选链操作符（`?.`）允许你安全地访问嵌套对象和数组的属性，而不会因为中间的属性不存在而导致错误。这样可以让我们省去用 if 判断等方法来检查是否存在某个属性。
+
+```javascript
+const person = {
+    name: "john",
+    age: 30,
+};
+console.log(person?.country); // Output: undefined;
+```
+
+除了判断对象是否存在之外，可选链操作符还可以用于判断函数方法。例如：
+
+```javascript
+const person = {
+    name: "kuma",
+    greet() {
+        console.log(`Hello, my name is ${this.name}`);
+    },
+};
+person.greet?.(); // Output: Hello, my name is kuma
+```
+
+### 遍历对象
+
+-   使用 `Object.keys()` 方法获取对象的所有键：
+
+```javascript
+const person = {
+    name: "kuma",
+    age: 30,
+};
+console.log(Object.keys(person)); // 输出 ['name', 'age']
+```
+
+-   使用 `Object.values()` 方法获取对象的所有值：
