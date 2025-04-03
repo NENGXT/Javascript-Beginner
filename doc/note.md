@@ -1034,3 +1034,21 @@ console.log(Object.keys(person)); // 输出 ['name', 'age']
 ```
 
 -   使用 `Object.values()` 方法获取对象的所有值：
+
+```javascript
+const person = {
+    name: "kuma",
+    age: 30,
+};
+console.log(Object.values(person)); //[ 'kuma', 30 ]
+```
+
+-   使用 `Object.entries()` 方法遍历对象的键值对，返回一个数组，其中每个元素都是一个包含键和值的数组。
+
+```javascript
+const person = {
+    name: "kuma",
+    age: 30,
+};
+console.log(Object.entries(person)); //输出：[ [ 'name', 'kuma' ], [ 'age', 30 ] ]
+```

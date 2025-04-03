@@ -373,13 +373,19 @@ for (const day of weekDays) {
 
 //遍历
 //遍历对象的key
-const workDays = Object.keys(openingHours);
-let openStr = `我们的餐厅一周营业${workDays.length}天`;
+// const workDays = Object.keys(openingHours);
+// let openStr = `我们的餐厅一周营业${workDays.length}天:`;
 
-for (const day of Object.keys(openingHours)) {
-  openStr += `${day},`;
-}
+// for (const day of Object.keys(openingHours)) {
+//   openStr += `${day},`;
+// }
 // console.log(openStr);
 
 //遍历对象的values
-const values = Object.values(openingHours);
+// const values = Object.values(openingHours);
+
+//遍历对象的entries
+// const entries = Object.entries(openingHours);
+// for (const [key, { open, close }] of entries) {
+//   console.log(`on ${key} we open at ${open} and close at ${close}`);
+// }
