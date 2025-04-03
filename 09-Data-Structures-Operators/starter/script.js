@@ -271,48 +271,101 @@ const restaurant = {
 // rest1.owner &&= ';';
 // rest2.owner &&= ';';
 
-// //题目代码
-// const game = {
-//   team1: 'Bayern Munich',
-//   team2: 'Borrussia Dortmund',
-//   players: [
-//     [
-//       'Neuer',
-//       'Pavard',
-//       'Martinez',
-//       'Alaba',
-//       'Davies',
-//       'Kimmich',
-//       'Goretzka',
-//       'Coman',
-//       'Muller',
-//       'Gnarby',
-//       'Lewandowski',
-//     ],
-//     [
-//       'Burki',
-//       'Schulz',
-//       'Hummels',
-//       'Akanji',
-//       'Hakimi',
-//       'Weigl',
-//       'Witsel',
-//       'Hazard',
-//       'Brandt',
-//       'Sancho',
-//       'Gotze',
-//     ],
-//   ],
-//   score: '4:0',
-//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-//   date: 'Nov 9th, 2037',
-//   odds: {
-//     team1: 1.33,
-//     x: 3.25,
-//     team2: 6.5,
-//   },
-// };
+//for-of Loop
 
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// for (const item of menu) {
+//   // console.log(item);
+// }
+// for (const item of menu.entries()) {
+//   // console.log(`${item[0] + 1}: ${item[1]}`);
+// }
+// for (const [num, item] of menu.entries()) {
+//   // console.log(`${num + 1}: ${item}`);
+// }
+
+//?.
+
+// console.log(restaurant.openingHours.mon?.open);
+// const person = {
+//   name: 'kuma',
+//   age: 30,
+// };
+// console.log(person.country?.area);
+
+// for (const day of weekDays) {
+//   console.log(day?.openingHours?.open);
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`On ${day}, we open at ${open}`);
+// }
+
+// console.log(restaurant.order?.(0, 1) ?? 'No order available');
+
+// const arr = [1, 2, 3, 4, 5];
+// console.log(arr[0]?.name ?? 'error');
+
+//遍历
+//遍历对象的key
+// const workDays = Object.keys(openingHours);
+// let openStr = `我们的餐厅一周营业${workDays.length}天:`;
+
+// for (const day of Object.keys(openingHours)) {
+//   openStr += `${day},`;
+// }
+// console.log(openStr);
+
+//遍历对象的values
+// const values = Object.values(openingHours);
+
+//遍历对象的entries
+// const entries = Object.entries(openingHours);
+// for (const [key, { open, close }] of entries) {
+//   console.log(`on ${key} we open at ${open} and close at ${close}`);
+// }
+
+//题目代码
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+/*-------挑战1--------*/
 // //1.
 // const [players1, players2] = game.players;
 // //2.
@@ -338,54 +391,40 @@ const restaurant = {
 // team1 < team2 && console.log('`team1 will be the winner`');
 // team1 > team2 && console.log('`team2 will be the winner`');
 
-//for-of Loop
-
-// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-// for (const item of menu) {
-//   // console.log(item);
+/*-------挑战2--------*/
+// //1.
+// for (let [num, name] of game.scored.entries()) {
+//   // console.log(`球员 ${num + 1} 是 ${name}`);
 // }
-// for (const item of menu.entries()) {
-//   // console.log(`${item[0] + 1}: ${item[1]}`);
+// //2.
+// const odds = Object.values(game.odds);
+// let sum = 0;
+// for (let odd of odds) {
+//   sum += odd;
 // }
-// for (const [num, item] of menu.entries()) {
-//   // console.log(`${num + 1}: ${item}`);
+// let avg = sum / odds.length;
+// // console.log(Math.floor(avg));
+
+// //3.
+// for (const [team, value] of Object.entries(game.odds)) {
+//   const str = team === 'x' ? 'Odd of draw' : `Odd of victory ${game[team]}`;
+//   console.log(`${str}:${value}`);
 // }
 
-//?.
-
-// console.log(restaurant.openingHours.mon?.open);
-// const person = {
-//   name: 'kuma',
-//   age: 30,
-// };
-// console.log(person.country?.area);
-
-for (const day of weekDays) {
-  // console.log(day?.openingHours?.open);
-  const open = restaurant.openingHours[day]?.open ?? 'closed';
-  // console.log(`On ${day}, we open at ${open}`);
-}
-
-// console.log(restaurant.order?.(0, 1) ?? 'No order available');
-
-// const arr = [1, 2, 3, 4, 5];
-// console.log(arr[0]?.name ?? 'error');
-
-//遍历
-//遍历对象的key
-// const workDays = Object.keys(openingHours);
-// let openStr = `我们的餐厅一周营业${workDays.length}天:`;
-
-// for (const day of Object.keys(openingHours)) {
-//   openStr += `${day},`;
+// //Bouns:
+// const sorers = {};
+// for (let players of game.scored) {
+//   console.log(players);
+//   sorers[players] ? sorers[players]++ : (sorers[players] = 1);
 // }
-// console.log(openStr);
 
-//遍历对象的values
-// const values = Object.values(openingHours);
-
-//遍历对象的entries
-// const entries = Object.entries(openingHours);
-// for (const [key, { open, close }] of entries) {
-//   console.log(`on ${key} we open at ${open} and close at ${close}`);
-// }
+/*-------SETS--------*/
+const ordersSet = new Set([
+  'pasta',
+  'pizza',
+  'pizza',
+  'risotto',
+  'pasta',
+  'pizza',
+]);
+console.log(ordersSet);

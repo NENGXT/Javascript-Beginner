@@ -26,6 +26,35 @@
 
 -   测试数据 6：使用球员 ‘Davies’、‘Muller’、‘Lewandowski’ 和 ‘Kimmich’。然后，再次调用函数，传入来自 game.scored 的球员。
 
+让我们继续开发我们的足球投注应用！
+
+1. 遍历 `game.scored` 数组，依次将每个进球球员的名字和进球编号打印到控制台  
+   （例如："Goal 1: Lewandowski"）。
+
+2. 使用循环计算平均赔率，并将其打印到控制台  
+   （我们之前已经学习过如何计算平均值，如果忘记了可以回顾一下）。
+
+3. 将 3 个赔率以漂亮的格式打印到控制台，格式如下：  
+    Odd of victory Bayern Munich: 1.33  
+    Odd of draw: 3.25  
+    Odd of victory Borrussia Dortmund: 6.5  
+   要求直接从 `game` 对象中获取球队的名字，不要硬编码（"draw" 除外）。  
+   提示：注意赔率和 `game` 对象的属性名称是相同的 😉
+
+**BONUS：**  
+创建一个名为 `scorers` 的对象，该对象的属性为进球球员的名字，属性值为他们进球的数量。  
+在这个比赛中，示例结果如下：
+
+```javascript
+{
+  Gnarby: 1,
+  Hummels: 1,
+  Lewandowski: 2
+}
+```
+
+---
+
 ```javascript
 //题目代码
 const game = {

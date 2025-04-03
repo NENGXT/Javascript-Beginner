@@ -1052,3 +1052,13 @@ const person = {
 };
 console.log(Object.entries(person)); //输出：[ [ 'name', 'kuma' ], [ 'age', 30 ] ]
 ```
+
+### 集合｜ Sets
+
+集合（Sets）是 JavaScript ES6 中引入的一种内置数据结构，用来存储一组唯一的值，也就是说，集合中的每个值都是独一无二的，不会出现重复。
+
+创建一个新集合，需要用到`new Set()`构造函数。例如：
+
+```javascript
+const mySet = new Set([可以迭代的值...]);
+```
