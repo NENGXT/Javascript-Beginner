@@ -738,3 +738,91 @@ Below is the ratingStars array. Destructure it into three variables called fiveS
 // let [[, rating], [, ratingsCount]] = ratings;
 // const ratingStars = [63405, 1808];
 // let [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
+
+/*
+# JavaScript 练习题
+
+下面的练习题基于你学习笔记中的内容，涵盖了：
+
+- 数据结构  
+- 现代运算符  
+- 字符串、数组和对象解构  
+- 扩展运算符、剩余参数  
+- 逻辑运算符、for-of 循环  
+- 对象字面量、集合（Sets）等知识点  
+
+请尝试完成以下 10 道题，巩固你的学习内容。
+
+---
+*/
+
+/*
+假设你在开发一家在线商城的订单管理系统。
+每个订单都包含若干个产品，每个产品用一个对象表示，例如：
+{ id: 101, name: "手机", price: 2999 }
+*/
+// const order1 = [
+//     { id: 101, name: "手机", price: 2999 },
+//     { id: 102, name: "耳机", price: 399 },
+// ];
+
+// const order2 = [
+//     { id: 103, name: "笔记本", price: 7999 },
+//     { id: 104, name: "鼠标", price: 199 },
+// ];
+
+// const mergedOrder = function (...orders) {
+//     const merged = [...orders];
+//     return merged;
+// };
+// const result = mergedOrder(...order1, ...order2);
+// console.log(result);
+// 期望 mergedOrder 为：
+// [
+//   { id: 101, name: "手机", price: 2999 },
+//   { id: 102, name: "耳机", price: 399 },
+//   { id: 103, name: "笔记本", price: 7999 },
+//   { id: 104, name: "鼠标", price: 199 }
+// ]
+
+// const updatedOrder = function (order, newProduct) {
+//     const newOrder = [...order, newProduct];
+//     console.log(newOrder);
+// };
+
+// updatedOrder(result, { id: 105, name: "键盘", price: 599 });
+// 期望 updatedOrder 为 mergedOrder 加上新产品键盘
+
+/*
+	1.	合并多个播放列表
+编写一个函数 mergePlaylists(...playlists)，使用剩余参数语法接收任意数量的播放列表数组作为参数。
+	•	要求：使用扩展运算符将所有播放列表合并为一个新的数组，并返回该数组。
+	•	提示：可以利用 [].concat(...playlists) 或者 [...playlists.flat()] 来实现合并。
+	2.	添加新歌曲到播放列表
+编写一个函数 addSong(playlist, newSong)，该函数接收一个播放列表数组和一个新歌曲对象。
+	•	要求：使用扩展运算符，将新歌曲添加到播放列表数组的末尾，返回一个新的播放列表数组（不要直接修改原数组）。
+    
+*/
+// const playlist1 = [
+//     { title: "Song A", artist: "Artist X" },
+//     { title: "Song B", artist: "Artist Y" },
+// ];
+
+// const playlist2 = [
+//     { title: "Song C", artist: "Artist Z" },
+//     { title: "Song D", artist: "Artist W" },
+// ];
+
+// const mergePlaylists = function (...playlists) {
+//     const merged = [].concat(...playlists);
+//     return merged;
+// };
+
+// const oldSong = mergePlaylists(playlist1, playlist2);
+
+// const addSong = function (playList, newSong) {
+//     const newPlaylist = [...playList, newSong];
+//     return newPlaylist;
+// };
+
+// console.log(addSong(oldSong, { title: "New Song", artist: "Artist Q" }));

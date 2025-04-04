@@ -428,3 +428,12 @@ const ordersSet = new Set([
   'pizza',
 ]);
 console.log(ordersSet);
+
+const myobj = {
+  name: ['AXITEE', 'kuma'],
+  age: 30,
+};
+const x = myobj.name.entries();
+for (let i of Object.entries(myobj)) {
+  console.log(i);
+}
