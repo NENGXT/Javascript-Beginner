@@ -819,6 +819,7 @@ Below is the ratingStars array. Destructure it into three variables called fiveS
 // };
 
 // const oldSong = mergePlaylists(playlist1, playlist2);
+// console.log(oldSong);
 
 // const addSong = function (playList, newSong) {
 //     const newPlaylist = [...playList, newSong];

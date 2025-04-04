@@ -26,7 +26,7 @@
 
 -   测试数据 6：使用球员 ‘Davies’、‘Muller’、‘Lewandowski’ 和 ‘Kimmich’。然后，再次调用函数，传入来自 game.scored 的球员。
 
-让我们继续开发我们的足球投注应用！
+### 让我们继续开发我们的足球投注应用！
 
 1. 遍历 `game.scored` 数组，依次将每个进球球员的名字和进球编号打印到控制台  
    （例如："Goal 1: Lewandowski"）。
