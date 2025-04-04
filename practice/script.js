@@ -827,3 +827,34 @@ Below is the ratingStars array. Destructure it into three variables called fiveS
 // };
 
 // console.log(addSong(oldSong, { title: "New Song", artist: "Artist Q" }));
+
+/*
+你正在开发一个图书馆管理系统，图书馆的库存信息以一个对象的形式存储，
+其中每个键（key）是书籍的名称，而对应的值（value）是该书的库存数量。
+请完成以下任务：
+	1.	获取所有书籍名称
+使用 Object.keys() 方法获取 libraryInventory 对象中所有的书名，并打印出这些书名。
+	2.	统计总库存
+使用 Object.values() 方法获取所有库存数量，然后计算出图书馆所有书籍的总库存数量，并打印出来。
+	3.	遍历库存详情
+使用 Object.entries() 方法遍历整个 libraryInventory 对象，打印出每本书的名称和库存数量。
+格式要求为：《书名》库存：数量
+*/
+
+// const libraryInventory = {
+//     "JavaScript 入门": 3,
+//     "深入理解 Node.js": 5,
+//     "CSS 权威指南": 2,
+//     "HTML5 高级编程": 4,
+// };
+
+// const bookName = Object.keys(libraryInventory);
+// let bookCount = 0;
+// for (let i of Object.values(libraryInventory)) {
+//     bookCount += i;
+// }
+// console.log(bookCount);
+// const bookentries = Object.entries(libraryInventory);
+// for (let [name, count] of bookentries) {
+//     console.log(`${name} 库存： ${count}`);
+// }
