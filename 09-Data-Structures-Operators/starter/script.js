@@ -419,21 +419,24 @@ const game = {
 // }
 
 /*-------SETS--------*/
-const ordersSet = new Set([
-  'pasta',
-  'pizza',
-  'pizza',
-  'risotto',
-  'pasta',
-  'pizza',
-]);
-console.log(ordersSet);
+// const ordersSet = new Set([
+//   'pasta',
+//   'pizza',
+//   'pizza',
+//   'risotto',
+//   'pasta',
+//   'pizza',
+// ]);
 
-const myobj = {
-  name: ['AXITEE', 'kuma'],
-  age: 30,
-};
-const x = myobj.name.entries();
-for (let i of Object.entries(myobj)) {
-  console.log(i);
-}
+// console.log(ordersSet.size);
+// console.log(ordersSet.has('pizza'));
+// console.log(ordersSet.add('garlic bread'));
+// console.log(ordersSet.delete('risotto'));
+// console.log(ordersSet);
+
+// const staff = ['Waiter', 'Chef', 'Manager', 'Waiter', 'Chef', 'Waiter'];
+// const starffUniq = [...new Set(staff)];
+// console.log(starffUniq);
+
+const names = ['Alice', 'Bob', 'Charlie', 'Alice', 'David', 'Bob', 'Eve'];
+const namesSet = [...new Set(names)].sort();

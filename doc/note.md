@@ -1060,5 +1060,21 @@ console.log(Object.entries(person)); //输出：[ [ 'name', 'kuma' ], [ 'age', 3
 创建一个新集合，需要用到`new Set()`构造函数。例如：
 
 ```javascript
-const mySet = new Set([可以迭代的值...]);
+//声明一个新的集合
+const mySet = new Set([数组]);
+const mySet = new Set("字符串");
+
+//获取集合的大小
+const size = mySet.size;
+
+//检查某个值是否在集合中
+const hasValue = mySet.has(value);
+
+//添加一个值到集合中
+mySet.add(value);
+
+//删除一个值从集合中
+mySet.delete(value);
 ```
+
+**在实际场景中，集合主要是用来去除数组中的重复元素。**
