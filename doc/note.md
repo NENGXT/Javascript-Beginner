@@ -1057,7 +1057,7 @@ console.log(Object.entries(person)); //输出：[ [ 'name', 'kuma' ], [ 'age', 3
 
 集合（Sets）是 JavaScript ES6 中引入的一种内置数据结构，用来存储一组唯一的值，也就是说，集合中的每个值都是独一无二的，不会出现重复。
 
-创建一个新集合，需要用到`new Set()`构造函数。例如：
+一下是集合的常用方法：
 
 ```javascript
 //声明一个新的集合
@@ -1075,6 +1075,50 @@ mySet.add(value);
 
 //删除一个值从集合中
 mySet.delete(value);
+
+//在两个集合中进行交集操作
+const intersection = mySet.intersection(otherSet);
+
+//将两个集合合并成一个新的集合
+const union = mySet.union(otherSet);
+
+//difference：返回一个新集合，包含第一个集合中所有不在第二个集合中的元素。
+const difference = mySet.difference(otherSet);
 ```
 
 **在实际场景中，集合主要是用来去除数组中的重复元素。**
+
+### 映射｜ Maps
+
+映射是一种数据结构，用于存储键值对。每个键都必须是唯一的，并且可以是任何类型的值。和对象不同的是，映射的 key 可以是任何类型。
+
+以下是 Maps 的用法：
+
+```javascript
+// 创建一个新的Map对象
+const myMap = new Map();
+
+//添加键值对
+myMap.set("key1", "value1");
+
+//可以连续使用set方法添加多个键值对
+myMap.set("1", "2").set("3", "4");
+
+//获取map的某一个值
+myMap.get("key1");
+
+//在map.get里添加表达式
+myMap.set(1, "value");
+myMap.get(0 + 1); //输出‘value’
+
+//检查某个值是否在映射中
+myMap.has("key1");
+
+//删除某个键值对
+myMap.delete("key2");
+
+//当key是数组时，直接通过get(数组)的方式是无法获取到对应的值。需要先命名一个变量，然后通过set方法将这个变量赋值给map的键。
+const arr = [1, 2];
+const myMap = new Map().set(arr, "value");
+console.log(myMap.get(arr)); // value
+```

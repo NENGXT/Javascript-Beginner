@@ -13,23 +13,6 @@ const input = document.getElementById('input');
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const italianFoods = new Set([
-  'pasta',
-  'gnocchi',
-  'tomatoes',
-  'olive oil',
-  'garlic',
-  'basil',
-]);
-
-const mexicanFoods = new Set([
-  'tortillas',
-  'beans',
-  'rice',
-  'tomatoes',
-  'avocado',
-  'garlic',
-]);
 const weekDays = ['mon', 'tus', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   [weekDays[3]]: {
@@ -438,5 +421,54 @@ const game = {
 // const starffUniq = [...new Set(staff)];
 // console.log(starffUniq);
 
-const names = ['Alice', 'Bob', 'Charlie', 'Alice', 'David', 'Bob', 'Eve'];
-const namesSet = [...new Set(names)].sort();
+// const italianFoods = new Set([
+//   'pasta',
+//   'gnocchi',
+//   'tomatoes',
+//   'olive oil',
+//   'garlic',
+//   'basil',
+// ]);
+
+// const mexicanFoods = new Set([
+//   'tortillas',
+//   'beans',
+//   'rice',
+//   'tomatoes',
+//   'avocado',
+//   'garlic',
+// ]);
+
+// const commonFood = italianFoods.intersection(mexicanFoods);
+// console.log(commonFood);
+// const fusionFood = italianFoods.union(mexicanFoods);
+
+// const uniqItalian = italianFoods.difference(mexicanFoods);
+// const uniqMaxican = mexicanFoods.difference(italianFoods);
+
+/*-------MAPS--------*/
+
+const rest = new Map();
+rest.set('name', 'ikebukuro');
+rest.set(1, '1-2-3 ikebukuro');
+
+rest
+  .set('categories', ['Italian', 'Japanese', 'Mexican'])
+  .set('open', 12)
+  .set('close', 24)
+  .set(true, 'we are open:)')
+  .set(false, 'we are closed:(');
+
+// const time = new Date().getHours();
+// const isOpen = rest.get(time >= rest.get('open') && time <= rest.get('close'));
+
+// console.log(rest.has(1));
+// rest.delete('categories');
+// console.log(rest);
+
+// rest.set([1, 2], 'value');
+// console.log(rest.get([1, 2])); // undefined
+
+rest.set(document.querySelector('h1'), 'This is a h1 element');
+
+console.log(rest.get(document.querySelector('h1')));
