@@ -448,16 +448,16 @@ const game = {
 
 /*-------MAPS--------*/
 
-const rest = new Map();
-rest.set('name', 'ikebukuro');
-rest.set(1, '1-2-3 ikebukuro');
+// const rest = new Map();
+// rest.set('name', 'ikebukuro');
+// rest.set(1, '1-2-3 ikebukuro');
 
-rest
-  .set('categories', ['Italian', 'Japanese', 'Mexican'])
-  .set('open', 12)
-  .set('close', 24)
-  .set(true, 'we are open:)')
-  .set(false, 'we are closed:(');
+// rest
+//   .set('categories', ['Italian', 'Japanese', 'Mexican'])
+//   .set('open', 12)
+//   .set('close', 24)
+//   .set(true, 'we are open:)')
+//   .set(false, 'we are closed:(');
 
 // const time = new Date().getHours();
 // const isOpen = rest.get(time >= rest.get('open') && time <= rest.get('close'));
@@ -468,7 +468,133 @@ rest
 
 // rest.set([1, 2], 'value');
 // console.log(rest.get([1, 2])); // undefined
+// const h1 = document.querySelector('h1');
+// rest.set(h1, 'This is a h1 element');
 
-rest.set(document.querySelector('h1'), 'This is a h1 element');
+// console.log(rest.get(h1));
 
-console.log(rest.get(document.querySelector('h1')));
+// const questions = new Map([
+//   ['question', 'what launguage is the best in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct:)'],
+//   [false, 'Wrong:('],
+// ]);
+
+// const newMap = new Map(Object.entries(openingHours));
+// console.log(newMap, Object.entries(openingHours));
+
+// console.log(questions.get('question'));
+// for (const [key, value] of questions) {
+//   if (typeof key === 'number') {
+//     console.log(value);
+//   }
+// }
+// const answer = Number(prompt('Write the correct answer:'));
+// console.log(questions.get(answer === questions.get('correct')));
+
+// console.log([...questions]);
+// console.log([...questions.keys()]);
+
+//-------------特殊练习-------------//
+const getMessage = document.getElementById('message');
+const getWeather = async function () {
+  getMessage.textContent = `☁️ 正在获取天气...`;
+  const response = await fetch('https://v2.wttr.in/Tokyo?format=3');
+  const data = await response.text();
+
+  getMessage.textContent = data;
+  console.log(data);
+};
+getWeather();
+setInterval(getWeather, 300000);
+//-------------------------------//
+
+//代码挑战3
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
+//1.
+// const events = new Set(gameEvents.values());
+// console.log(events);
+//2.
+// const newGameEvents = gameEvents.delete(64);
+//3.
+// const time = [...gameEvents.keys()].pop();
+// console.log(time);
+// console.log(`每平均${time / gameEvents.size}分钟发生一次事件`);
+//4.
+// for (let [key, event] of gameEvents) {
+//   let message =
+//     key < 45
+//       ? `[FIRST HALF] ${key}: ${event}`
+//       : `[SECOND HALF] ${key}: ${event}`;
+//   console.log(message);
+// }
+
+//和字符串一起工作
+const airline = 'Japanese Airline';
+const plane = 'A320';
+
+// console.log(plane.indexOf('2'));
+// console.log(airline.lastIndexOf('a'));
+// console.log(airline.slice(airline.indexOf('A')));
+// console.log(airline.slice(airline.indexOf('A', 'e')));
+
+// const checkSeat = function (seat) {
+//   //B and E are middle seats
+//   const s = seat.slice(-1);
+//   const seatInfo = s === 'B' || s === 'E' ? 'Middle Seat' : 'Window Seat';
+//   console.log(`${seatInfo}:${seat}`);
+// };
+
+// checkSeat('11B');
+// checkSeat('23C');
+// checkSeat('3E');
+// console.log(airline.toLowerCase());
+
+//修改字符串
+// const passenger = 'AXiTeE';
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// console.log(passengerCorrect);
+
+//比较邮件
+// const email = 'axitee@outlook.com';
+// const loginEmail = '  axiteE@outlooK.com ';
+
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail === email); // 输出: true
+
+//替换字符串
+// const myName = 'AXITEE NENG';
+// const newName = myName.replace('NENG', 'XIONG');
+// console.log(newName);
+
+// const MyId = '226989';
+// console.log(MyId.replaceAll('2', ''));
+
+// const MyCountry = 'China';
+// console.log(MyCountry.replace(/ina/g, 'a'));
+
+//布尔值
+const newplane = 'Airbus A320neo';
+// console.log(newplane.includes('320'));
+// console.log(newplane.startsWith('A32'));
+
+if (newplane.startsWith('Airbus') && newplane.endsWith('neo')) {
+  console.log(`YOUR FILGHT IS ${newplane}`);
+}

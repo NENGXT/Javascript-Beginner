@@ -1098,6 +1098,12 @@ const difference = mySet.difference(otherSet);
 // 创建一个新的Map对象
 const myMap = new Map();
 
+// 直接在构造函数中初始化map对象
+const myMap = new Map([
+    ["key1", "value1"],
+    ["key2", "value2"],
+]);
+
 //添加键值对
 myMap.set("key1", "value1");
 
@@ -1117,8 +1123,137 @@ myMap.has("key1");
 //删除某个键值对
 myMap.delete("key2");
 
-//当key是数组时，直接通过get(数组)的方式是无法获取到对应的值。需要先命名一个变量，然后通过set方法将这个变量赋值给map的键。
+//当key是数组时，直接通过get(数组)的方式是无法获取到对应的值。需要先命名一个变量，然后通过赋值变量才能使用。
 const arr = [1, 2];
 const myMap = new Map().set(arr, "value");
 console.log(myMap.get(arr)); // value
+
+//映射可以用for循环去遍历
+for (let i of myMap) {
+    console.log(i); //输出的是键值对
+}
 ```
+
+### 数组和集合，对象和映射
+
+---
+
+#### 🟦 Arrays
+
+```js
+const tasks = ["Code", "Eat", "Code"];
+// ["Code", "Eat", "Code"]
+```
+
+-   👉 使用场景：
+    -   你需要一个**有序（Ordered）**的值列表
+    -   允许包含**重复值**
+    -   需要频繁地 **操作 / 变换数据（manipulate）**
+
+---
+
+#### 🟩 Sets
+
+```js
+const tasks = new Set(["Code", "Eat", "Code"]);
+// {"Code", "Eat"}
+```
+
+-   👉 使用场景：
+    -   你需要只包含**唯一值（Unique values）**
+    -   对 **性能要求高**（高性能查找 / 去重）
+    -   快速地从数组中**移除重复项**
+
+---
+
+#### 🧠 总结对比（Array vs Set）
+
+| 特性/用途                 | Array                           | Set                                 |
+| ------------------------- | ------------------------------- | ----------------------------------- |
+| 是否有序（保持插入顺序）  | ✅ 是                           | ✅ 是                               |
+| 是否允许重复              | ✅ 是                           | ❌ 不允许                           |
+| 是否适合频繁操作/变换数据 | ✅ 适合（支持 map/filter/sort） | ❌ 不太适合（只能用 for...of 遍历） |
+| 是否自动去重              | ❌ 不会                         | ✅ 会自动去重                       |
+| 性能优势                  | 一般                            | 更快的查找（基于哈希）              |
+
+---
+
+#### 🟧 Objects
+
+```js
+task = {
+    task: "Code",
+    date: "today",
+    repeat: true,
+};
+```
+
+-   👉 更“传统”的 key/value 存储方式（有时被滥用）
+-   👉 使用 `.` 和 `[]` 更容易读写属性值
+
+---
+
+#### 🟨 Maps
+
+```js
+task = new Map([
+    ["task", "Code"],
+    ["date", "today"],
+    [false, "Start coding!"],
+]);
+```
+
+-   👉 性能更好（Better performance）
+-   👉 键可以是 **任何数据类型**（Keys can have any type）
+-   👉 更容易迭代（如 `for...of`）
+-   👉 更容易获取 size（使用 `.size`）
+
+---
+
+#### 🧠 总结对比（Object vs Map）
+
+| 特性/用途 | Object                          | Map                                |
+| --------- | ------------------------------- | ---------------------------------- |
+| 键的类型  | 只能是字符串或 Symbol           | 任意类型（包括对象、布尔值等）     |
+| 插入顺序  | 不保证顺序                      | 保持插入顺序                       |
+| 遍历方式  | `for...in` / `Object.entries()` | `forEach()` 或 `for...of` 直接遍历 |
+| 获取大小  | 需要手动计算                    | 使用 `.size` 属性                  |
+| 使用场景  | 简单结构或 JSON                 | 复杂结构、性能要求高、键类型多样   |
+
+### 字符串处理
+
+-   `string[index]`: 获取指定位置的字符。
+-   `string.length`: 获取字符串的长度。
+-   `string.indexOf()`: 返回指定值在字符串中首次出现的位置，如果未找到则返回 -1。
+-   `string.lastIndexOf()`: 返回指定值在字符串中最后出现的位置，如果未找到则返回 -1。
+-   `string.slice()`: 根据索引截取字符串，返回一个新的字符串。例如：
+
+```javascript
+const name = "AXITEE NENG";
+console.log(name.slice(7)); //输出：NENG
+console.log(name.slice(name.indexOf("A"))); //输出：AXITEE NENG
+console.log(name.slice(name.indexOf("A", "E"))); //输出：AXITEE
+```
+
+-   `string.toLowerCase()`: 将字符串转换为小写。
+-   `string.toUpperCase()`: 将字符串转换为大写。
+-   `string.trim()`: 去掉字符串两端的空格。
+-   `string.replace()`: 用于替换字符串中**首个出现的**特定子字符串。第一个参数是要被替换的子字符串，第二个参数是替换后的子字符串。例如:
+
+```javascript
+const name = "AXITEE NENG";
+const newName = name.replace("NENG", "XIONG");
+console.log(newName); //输出：AXITEE XIONG
+```
+
+-   `string.replaceAll()`: 用于将字符串中所有匹配的子字符串都替换为指定的字符串。例如:
+
+```javascript
+const name = "AXITAA NENG";
+const newName = name.replace("A", "E");
+console.log(newName); //输出：AXITEE NENG
+```
+
+-   `string.includes()`: 检查字符串是否包含指定的子字符串。返回一个布尔值。
+
+-   `string.startsWith()`: 判断字符串是否以指定的子字符串开头。以指定的字符串结尾的话用`string.endWith()`
