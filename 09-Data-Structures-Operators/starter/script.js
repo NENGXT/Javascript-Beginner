@@ -502,11 +502,9 @@ const game = {
 const getMessage = document.getElementById('message');
 const getWeather = async function () {
   getMessage.textContent = `☁️ 正在获取天气...`;
-  const response = await fetch('https://v2.wttr.in/Tokyo?format=3');
+  const response = await fetch('https://wttr.in/Tokyo?format=3');
   const data = await response.text();
-
   getMessage.textContent = data;
-  console.log(data);
 };
 getWeather();
 setInterval(getWeather, 300000);
