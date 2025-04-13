@@ -596,3 +596,7 @@ const newplane = 'Airbus A320neo';
 if (newplane.startsWith('Airbus') && newplane.endsWith('neo')) {
   console.log(`YOUR FILGHT IS ${newplane}`);
 }
+
+const myName = 'Kuma Tsu';
+const isOf = myName.startsWith('AXITEE');
+console.log(isOf);
