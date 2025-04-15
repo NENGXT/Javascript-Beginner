@@ -1257,3 +1257,33 @@ console.log(newName); //输出：AXITEE NENG
 -   `string.includes()`: 检查字符串是否包含指定的子字符串。返回一个布尔值。
 
 -   `string.startsWith()`: 判断字符串是否以指定的子字符串开头。以指定的字符串结尾的话用`string.endWith()`
+
+-   `string.split()`: 非常重点的一个语法,可以使一个字符串按照某个字符拆分成数组。
+
+```javascript
+// 按空格分词
+const sentence = "前端 编程 真有趣";
+console.log(sentence.split(" ")); // ["前端", "编程", "真有趣"]
+
+// 按每个字母切开
+console.log("Hello".split("")); // ["H", "e", "l", "l", "o"]
+
+// 限制分割次数（最多分成两段）
+console.log("one-two-three".split("-", 2)); // ["one", "two"]
+```
+
+-   `string.join()`: 和 split 相反，join 方法可以把被拆分开的数组按照分隔符组合成新的字符串。
+
+```javascript
+const [name, id] = "AXITEE 0821".split(" ");
+const sentence = [name, "id", "is", id].join(" ");
+console.log(sentence); //AXITEE id is 0821
+```
+
+-   ` string.padStart()` `string.padEnd()`: 分别在原字符串的开头和结尾添加一定数量的字符。括号内的第一个参数代表最终的字符数量的总长度，第二个参数代表要添加的字符
+
+```javascript
+const message = "hello world";
+console.log(message.padStart(12, "*")); //*hello world
+console.log(message.padEnd(12, "*")); //hello world*
+```

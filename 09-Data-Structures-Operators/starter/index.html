@@ -13,6 +13,7 @@
         justify-content: center;
         align-items: center;
         background: linear-gradient(to top left, #28b487, #7dd56f);
+        animation: ;
       }
       h1 {
         font-family: sans-serif;
@@ -31,11 +32,23 @@
         text-align: center;
         color: white;
       }
+      .message {
+        animation: scroll-horizontal 5s infinite linear;
+      }
+
+      @keyframes scroll-horizontal {
+        from {
+          transform: translateX(100%);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
     </style>
   </head>
   <body>
     <h1>Data Structures and Modern Operators</h1>
-    <p id="message"></p>
+    <p id="message" class="message"></p>
     <script src="script.js"></script>
   </body>
 </html>

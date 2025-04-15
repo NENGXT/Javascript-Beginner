@@ -589,14 +589,68 @@ const plane = 'A320';
 // console.log(MyCountry.replace(/ina/g, 'a'));
 
 //布尔值
-const newplane = 'Airbus A320neo';
+// const newplane = 'Airbus A320neo';
 // console.log(newplane.includes('320'));
 // console.log(newplane.startsWith('A32'));
 
-if (newplane.startsWith('Airbus') && newplane.endsWith('neo')) {
-  console.log(`YOUR FILGHT IS ${newplane}`);
-}
+// if (newplane.startsWith('Airbus') && newplane.endsWith('neo')) {
+//   console.log(`YOUR FILGHT IS ${newplane}`);
+// }
 
-const myName = 'Kuma Tsu';
-const isOf = myName.startsWith('AXITEE');
-console.log(isOf);
+// const myName = 'Kuma Tsu';
+// const isOf = myName.startsWith('AXITEE');
+// console.log(isOf);
+
+//字符串练习
+
+// const custormerData = new Map([
+//   ['Alice', 'has a gun'],
+//   ['Bob', 'has a camera'],
+//   ['David', 'has a laptop'],
+// ]);
+
+// const baggageCheck = function (item) {
+//   for (let i of item.keys()) {
+//     if (item.get(i).includes('gun') || item.get(i).includes('knife')) {
+//       console.log('WARNING: Item ' + i + ' contains a prohibited weapon.');
+//     } else {
+//       console.log('Item ' + i + ' is safe to carry.');
+//     }
+//   }
+// };
+
+// baggageCheck(custormerData);
+
+//字符拆分
+// const [firstName, lastName] = 'AXITEE NENG'.split(' ');
+
+// const title = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+
+// const [name, id] = 'AXITEE 0821'.split(' ');
+// const sentence = [name, 'id', 'is', id].join(' ');
+// console.log(sentence);
+// const everythingisUpper = function (name) {
+//   const sentence = name.split(' ');
+//   const wordList = [];
+//   for (let word of sentence) {
+//     wordList.push(word.replace(word[0], word[0].toUpperCase()));
+//   }
+//   console.log(wordList.join(' '));
+// };
+
+// everythingisUpper('axitee and leonaka and azoom');
+
+//字符填充
+const message = 'hello';
+// console.log(message.padStart(10, '*'));
+// console.log(message.padEnd(10, '*'));
+
+const cardPassword = function (password) {
+  const str = String(password);
+  const lastFour = str.slice(-4);
+  const passwordstars = lastFour.padStart(str.length, '*');
+  console.log(passwordstars);
+};
+
+cardPassword('123456789');
+cardPassword('440908199508211732');
