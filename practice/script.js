@@ -489,230 +489,230 @@ You will need a loop inside a loop for this. This is actually a bit tricky, so d
 
 /*----------分割线----------*/
 
-const books = [
-    {
-        title: "Algorithms",
-        author: ["Robert Sedgewick", "Kevin Wayne"],
-        publisher: "Addison-Wesley Professional",
-        publicationDate: "2011-03-24",
-        edition: 4,
-        keywords: [
-            "computer science",
-            "programming",
-            "algorithms",
-            "data structures",
-            "java",
-            "math",
-            "software",
-            "engineering",
-        ],
-        pages: 976,
-        format: "hardcover",
-        ISBN: "9780321573513",
-        language: "English",
-        programmingLanguage: "Java",
-        onlineContent: true,
-        thirdParty: {
-            goodreads: {
-                rating: 4.41,
-                ratingsCount: 1733,
-                reviewsCount: 63,
-                fiveStarRatingCount: 976,
-                oneStarRatingCount: 13,
-            },
-        },
-        highlighted: true,
-    },
-    {
-        title: "Structure and Interpretation of Computer Programs",
-        author: [
-            "Harold Abelson",
-            "Gerald Jay Sussman",
-            "Julie Sussman (Contributor)",
-        ],
-        publisher: "The MIT Press",
-        publicationDate: "2022-04-12",
-        edition: 2,
-        keywords: [
-            "computer science",
-            "programming",
-            "javascript",
-            "software",
-            "engineering",
-        ],
-        pages: 640,
-        format: "paperback",
-        ISBN: "9780262543231",
-        language: "English",
-        programmingLanguage: "JavaScript",
-        onlineContent: false,
-        thirdParty: {
-            goodreads: {
-                rating: 4.36,
-                ratingsCount: 14,
-                reviewsCount: 3,
-                fiveStarRatingCount: 8,
-                oneStarRatingCount: 0,
-            },
-        },
-        highlighted: true,
-    },
-    {
-        title: "Computer Systems: A Programmer's Perspective",
-        author: ["Randal E. Bryant", "David Richard O'Hallaron"],
-        publisher: "Prentice Hall",
-        publicationDate: "2002-01-01",
-        edition: 1,
-        keywords: [
-            "computer science",
-            "computer systems",
-            "programming",
-            "software",
-            "C",
-            "engineering",
-        ],
-        pages: 978,
-        format: "hardcover",
-        ISBN: "9780130340740",
-        language: "English",
-        programmingLanguage: "C",
-        onlineContent: false,
-        thirdParty: {
-            goodreads: {
-                rating: 4.44,
-                ratingsCount: 1010,
-                reviewsCount: 57,
-                fiveStarRatingCount: 638,
-                oneStarRatingCount: 16,
-            },
-        },
-        highlighted: true,
-    },
-    {
-        title: "Operating System Concepts",
-        author: ["Abraham Silberschatz", "Peter B. Galvin", "Greg Gagne"],
-        publisher: "John Wiley & Sons",
-        publicationDate: "2004-12-14",
-        edition: 10,
-        keywords: [
-            "computer science",
-            "operating systems",
-            "programming",
-            "software",
-            "C",
-            "Java",
-            "engineering",
-        ],
-        pages: 921,
-        format: "hardcover",
-        ISBN: "9780471694663",
-        language: "English",
-        programmingLanguage: "C, Java",
-        onlineContent: false,
-        thirdParty: {
-            goodreads: {
-                rating: 3.9,
-                ratingsCount: 2131,
-                reviewsCount: 114,
-                fiveStarRatingCount: 728,
-                oneStarRatingCount: 65,
-            },
-        },
-    },
-    {
-        title: "Engineering Mathematics",
-        author: ["K.A. Stroud", "Dexter J. Booth"],
-        publisher: "Palgrave",
-        publicationDate: "2007-01-01",
-        edition: 14,
-        keywords: ["mathematics", "engineering"],
-        pages: 1288,
-        format: "paperback",
-        ISBN: "9781403942463",
-        language: "English",
-        programmingLanguage: null,
-        onlineContent: true,
-        thirdParty: {
-            goodreads: {
-                rating: 4.35,
-                ratingsCount: 370,
-                reviewsCount: 18,
-                fiveStarRatingCount: 211,
-                oneStarRatingCount: 6,
-            },
-        },
-        highlighted: true,
-    },
-    {
-        title: "The Personal MBA: Master the Art of Business",
-        author: "Josh Kaufman",
-        publisher: "Portfolio",
-        publicationDate: "2010-12-30",
-        keywords: ["business"],
-        pages: 416,
-        format: "hardcover",
-        ISBN: "9781591843528",
-        language: "English",
-        thirdParty: {
-            goodreads: {
-                rating: 4.11,
-                ratingsCount: 40119,
-                reviewsCount: 1351,
-                fiveStarRatingCount: 18033,
-                oneStarRatingCount: 1090,
-            },
-        },
-    },
-    {
-        title: "Crafting Interpreters",
-        author: "Robert Nystrom",
-        publisher: "Genever Benning",
-        publicationDate: "2021-07-28",
-        keywords: [
-            "computer science",
-            "compilers",
-            "engineering",
-            "interpreters",
-            "software",
-            "engineering",
-        ],
-        pages: 865,
-        format: "paperback",
-        ISBN: "9780990582939",
-        language: "English",
-        thirdParty: {
-            goodreads: {
-                rating: 4.7,
-                ratingsCount: 253,
-                reviewsCount: 23,
-                fiveStarRatingCount: 193,
-                oneStarRatingCount: 0,
-            },
-        },
-    },
-    {
-        title: "Deep Work: Rules for Focused Success in a Distracted World",
-        author: "Cal Newport",
-        publisher: "Grand Central Publishing",
-        publicationDate: "2016-01-05",
-        edition: 1,
-        keywords: ["work", "focus", "personal development", "business"],
-        pages: 296,
-        format: "hardcover",
-        ISBN: "9781455586691",
-        language: "English",
-        thirdParty: {
-            goodreads: {
-                rating: 4.19,
-                ratingsCount: 144584,
-                reviewsCount: 11598,
-                fiveStarRatingCount: 63405,
-                oneStarRatingCount: 1808,
-            },
-        },
-        highlighted: true,
-    },
-];
+// const books = [
+//     {
+//         title: "Algorithms",
+//         author: ["Robert Sedgewick", "Kevin Wayne"],
+//         publisher: "Addison-Wesley Professional",
+//         publicationDate: "2011-03-24",
+//         edition: 4,
+//         keywords: [
+//             "computer science",
+//             "programming",
+//             "algorithms",
+//             "data structures",
+//             "java",
+//             "math",
+//             "software",
+//             "engineering",
+//         ],
+//         pages: 976,
+//         format: "hardcover",
+//         ISBN: "9780321573513",
+//         language: "English",
+//         programmingLanguage: "Java",
+//         onlineContent: true,
+//         thirdParty: {
+//             goodreads: {
+//                 rating: 4.41,
+//                 ratingsCount: 1733,
+//                 reviewsCount: 63,
+//                 fiveStarRatingCount: 976,
+//                 oneStarRatingCount: 13,
+//             },
+//         },
+//         highlighted: true,
+//     },
+//     {
+//         title: "Structure and Interpretation of Computer Programs",
+//         author: [
+//             "Harold Abelson",
+//             "Gerald Jay Sussman",
+//             "Julie Sussman (Contributor)",
+//         ],
+//         publisher: "The MIT Press",
+//         publicationDate: "2022-04-12",
+//         edition: 2,
+//         keywords: [
+//             "computer science",
+//             "programming",
+//             "javascript",
+//             "software",
+//             "engineering",
+//         ],
+//         pages: 640,
+//         format: "paperback",
+//         ISBN: "9780262543231",
+//         language: "English",
+//         programmingLanguage: "JavaScript",
+//         onlineContent: false,
+//         thirdParty: {
+//             goodreads: {
+//                 rating: 4.36,
+//                 ratingsCount: 14,
+//                 reviewsCount: 3,
+//                 fiveStarRatingCount: 8,
+//                 oneStarRatingCount: 0,
+//             },
+//         },
+//         highlighted: true,
+//     },
+//     {
+//         title: "Computer Systems: A Programmer's Perspective",
+//         author: ["Randal E. Bryant", "David Richard O'Hallaron"],
+//         publisher: "Prentice Hall",
+//         publicationDate: "2002-01-01",
+//         edition: 1,
+//         keywords: [
+//             "computer science",
+//             "computer systems",
+//             "programming",
+//             "software",
+//             "C",
+//             "engineering",
+//         ],
+//         pages: 978,
+//         format: "hardcover",
+//         ISBN: "9780130340740",
+//         language: "English",
+//         programmingLanguage: "C",
+//         onlineContent: false,
+//         thirdParty: {
+//             goodreads: {
+//                 rating: 4.44,
+//                 ratingsCount: 1010,
+//                 reviewsCount: 57,
+//                 fiveStarRatingCount: 638,
+//                 oneStarRatingCount: 16,
+//             },
+//         },
+//         highlighted: true,
+//     },
+//     {
+//         title: "Operating System Concepts",
+//         author: ["Abraham Silberschatz", "Peter B. Galvin", "Greg Gagne"],
+//         publisher: "John Wiley & Sons",
+//         publicationDate: "2004-12-14",
+//         edition: 10,
+//         keywords: [
+//             "computer science",
+//             "operating systems",
+//             "programming",
+//             "software",
+//             "C",
+//             "Java",
+//             "engineering",
+//         ],
+//         pages: 921,
+//         format: "hardcover",
+//         ISBN: "9780471694663",
+//         language: "English",
+//         programmingLanguage: "C, Java",
+//         onlineContent: false,
+//         thirdParty: {
+//             goodreads: {
+//                 rating: 3.9,
+//                 ratingsCount: 2131,
+//                 reviewsCount: 114,
+//                 fiveStarRatingCount: 728,
+//                 oneStarRatingCount: 65,
+//             },
+//         },
+//     },
+//     {
+//         title: "Engineering Mathematics",
+//         author: ["K.A. Stroud", "Dexter J. Booth"],
+//         publisher: "Palgrave",
+//         publicationDate: "2007-01-01",
+//         edition: 14,
+//         keywords: ["mathematics", "engineering"],
+//         pages: 1288,
+//         format: "paperback",
+//         ISBN: "9781403942463",
+//         language: "English",
+//         programmingLanguage: null,
+//         onlineContent: true,
+//         thirdParty: {
+//             goodreads: {
+//                 rating: 4.35,
+//                 ratingsCount: 370,
+//                 reviewsCount: 18,
+//                 fiveStarRatingCount: 211,
+//                 oneStarRatingCount: 6,
+//             },
+//         },
+//         highlighted: true,
+//     },
+//     {
+//         title: "The Personal MBA: Master the Art of Business",
+//         author: "Josh Kaufman",
+//         publisher: "Portfolio",
+//         publicationDate: "2010-12-30",
+//         keywords: ["business"],
+//         pages: 416,
+//         format: "hardcover",
+//         ISBN: "9781591843528",
+//         language: "English",
+//         thirdParty: {
+//             goodreads: {
+//                 rating: 4.11,
+//                 ratingsCount: 40119,
+//                 reviewsCount: 1351,
+//                 fiveStarRatingCount: 18033,
+//                 oneStarRatingCount: 1090,
+//             },
+//         },
+//     },
+//     {
+//         title: "Crafting Interpreters",
+//         author: "Robert Nystrom",
+//         publisher: "Genever Benning",
+//         publicationDate: "2021-07-28",
+//         keywords: [
+//             "computer science",
+//             "compilers",
+//             "engineering",
+//             "interpreters",
+//             "software",
+//             "engineering",
+//         ],
+//         pages: 865,
+//         format: "paperback",
+//         ISBN: "9780990582939",
+//         language: "English",
+//         thirdParty: {
+//             goodreads: {
+//                 rating: 4.7,
+//                 ratingsCount: 253,
+//                 reviewsCount: 23,
+//                 fiveStarRatingCount: 193,
+//                 oneStarRatingCount: 0,
+//             },
+//         },
+//     },
+//     {
+//         title: "Deep Work: Rules for Focused Success in a Distracted World",
+//         author: "Cal Newport",
+//         publisher: "Grand Central Publishing",
+//         publicationDate: "2016-01-05",
+//         edition: 1,
+//         keywords: ["work", "focus", "personal development", "business"],
+//         pages: 296,
+//         format: "hardcover",
+//         ISBN: "9781455586691",
+//         language: "English",
+//         thirdParty: {
+//             goodreads: {
+//                 rating: 4.19,
+//                 ratingsCount: 144584,
+//                 reviewsCount: 11598,
+//                 fiveStarRatingCount: 63405,
+//                 oneStarRatingCount: 1808,
+//             },
+//         },
+//         highlighted: true,
+//     },
+// ];
 
 /*
 1.1
@@ -858,3 +858,93 @@ Below is the ratingStars array. Destructure it into three variables called fiveS
 // for (let [name, count] of bookentries) {
 //     console.log(`${name} 库存： ${count}`);
 // }
+
+/*----------分割线----------*/
+/*
+当然可以！你刚刚完成的 camelCase 转换已经很强了，那我现在给你出一个真实项目中常见 + 字符串处理能力提升版的挑战题目 ✅
+
+⸻
+
+✨ 编程练习：格式化接口字段 → 转成人类可读标题
+
+⸻
+
+💡 题目背景（真实开发场景）：
+
+你从后端拿到了一个 JSON 数据对象，它的字段是用下划线命名（snake_case）的，比如：
+
+const apiData = {
+  user_id: 8127,
+  full_name: 'Kuma Tsu',
+  account_created_at: '2024-03-01T12:00:00Z',
+  last_login_ip: '192.168.1.1',
+};
+
+你要把这些字段名转换成「表格列标题」，也就是：
+
+User Id
+Full Name
+Account Created At
+Last Login Ip
+⸻
+
+✅ 任务目标：
+
+请你编写一个函数 formatFieldNames(obj)，它接收一个对象，并返回一个新数组，数组中是格式化后的字段名（首字母大写，空格分隔）
+
+⸻
+
+📥 输入：
+
+{
+  user_id: 8127,
+  full_name: 'Kuma Tsu',
+  account_created_at: '2024-03-01T12:00:00Z',
+  last_login_ip: '192.168.1.1',
+}
+⸻
+
+📤 输出：
+
+[
+  'User Id',
+  'Full Name',
+  'Account Created At',
+  'Last Login Ip'
+]
+⸻
+
+💡 提示：
+	1.	你可以用 Object.keys(obj) 获取所有字段名
+	2.	每个字段可以用 .split('_') 拆成词组
+	3.	每个词再首字母大写，最后用空格拼接 .join(' ')
+	4.	封装成函数后，返回这个数组
+⸻
+*/
+
+// const apiData = {
+//     user_id: 8127,
+//     full_name: "Kuma Tsu",
+//     account_created_at: "2024-03-01T12:00:00Z",
+//     last_login_ip: "192.168.1.1",
+//     my_data_is_very_long:
+//         "This is a very long piece of data that needs to be stored.",
+// };
+
+// const letterConvert = function (data) {
+//     const keyList = Object.keys(data);
+//     const output = [];
+//     for (let key of keyList) {
+//         const part = key.split("_");
+//         const newPart = [];
+//         for (let word of part) {
+//             const convertWord = word[0].toUpperCase() + word.slice(1);
+//             newPart.push(convertWord);
+//         }
+//         output.push(newPart.join(" "));
+//     }
+
+//     console.log(output);
+// };
+
+// letterConvert(apiData);
