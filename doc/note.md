@@ -1287,3 +1287,17 @@ const message = "hello world";
 console.log(message.padStart(12, "*")); //*hello world
 console.log(message.padEnd(12, "*")); //hello world*
 ```
+
+-   `string.repeat()`: 可以用于重复字符串指定的次数。例如，`'abc'.repeat(3)` 将返回 `'abcabcabc'`。
+
+## 更深一步了解 Function
+
+### 默认参数
+
+-   在 JavaScript 中，您可以为函数参数设置默认值，以便在未提供该参数时使用默认值。例如，您可以定义一个函数，如 `function example(param = defaultValue) {}`，其中 `defaultValue` 是当 `param` 未传递时使用的值，例如：
+
+```javascript
+const person = function (name, age, country = "中国") {
+    return country;
+}; //在没有外部传入新的数据到country，将保持原有的值。
+```

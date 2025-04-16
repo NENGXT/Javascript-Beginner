@@ -131,3 +131,77 @@ const gameEvents = new Map([
 ```
 
 ---
+
+当然可以！以下是将你刚才那道挑战题的中文翻译版整理成的 Markdown 格式 ✅
+你可以直接复制粘贴到笔记、Notion 或 VS Code 里用～
+
+⸻
+
+## 📘 编程挑战 #4：变量命名转换（underscore_case → camelCase）
+
+---
+
+### 🧠 题目描述：
+
+编写一个程序，从网页中的 `<textarea>` 文本框中获取一组变量名（每行一个），这些变量名使用 **下划线命名法（underscore_case）**。
+
+当点击按钮时，将这些变量名转换为 **驼峰命名法（camelCase）**，并使用 `console.log()` 将结果输出到控制台。
+
+---
+
+### 📥 输入示例（粘贴到 `<textarea>` 的文本）：
+
+underscore_case
+first_name
+Some_Variable
+calculate_AGE
+delayed_departure
+
+---
+
+### 📤 输出要求（控制台输出，带对齐和 ✅）：
+
+underscoreCase ✅
+firstName ✅✅
+someVariable ✅✅✅
+calculateAge ✅✅✅✅
+delayedDeparture ✅✅✅✅✅
+
+---
+
+### 💡 提示（Hints）：
+
+-   ✅ 每一行之间用 `\n`（换行符）分隔
+-   ✅ 你只需要处理「两个单词」的变量，比如 `some_variable`
+-   ✅ 可以先完成 camelCase 的转换部分，再处理 ✅ 的输出
+-   ✅ 输出可以用 `.padEnd()` 方法对齐
+-   ✅ 如果卡住了，可以先看一部分参考解法视频，再暂停动手写
+
+---
+
+### 📚 camelCase 是什么？
+
+camelCase（驼峰命名法）：
+
+-   第一个单词小写
+-   后续每个单词首字母大写
+-   不使用 `_` 分隔符
+
+示例：
+
+-   `first_name` → `firstName`
+-   `calculate_age` → `calculateAge`
+
+---
+
+### 🧪 延伸练习建议：
+
+-   尝试自己写一组变量测试不同的输入情况
+-   尝试添加错误处理（例如输入为空，或非两个词）
+-   尝试拓展为支持多个单词以上的 camelCase 转换
+
+---
+
+💪 加油！这是一个非常实用的字符串处理 + DOM 操作练习！
+
+⸻

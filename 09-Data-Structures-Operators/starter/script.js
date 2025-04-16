@@ -10,8 +10,6 @@ const input = document.getElementById('input');
 // });
 
 // Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 const weekDays = ['mon', 'tus', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
@@ -641,16 +639,81 @@ const plane = 'A320';
 // everythingisUpper('axitee and leonaka and azoom');
 
 //字符填充
-const message = 'hello';
+// const message = 'hello';
 // console.log(message.padStart(10, '*'));
 // console.log(message.padEnd(10, '*'));
 
-const cardPassword = function (password) {
-  const str = String(password);
-  const lastFour = str.slice(-4);
-  const passwordstars = lastFour.padStart(str.length, '*');
-  console.log(passwordstars);
-};
+// const cardPassword = function (password) {
+//   const str = String(password);
+//   const lastFour = str.slice(-4);
+//   const passwordstars = lastFour.padStart(str.length, '*');
+//   console.log(passwordstars);
+// };
 
-cardPassword('123456789');
-cardPassword('440908199508211732');
+// cardPassword('123456789');
+// cardPassword('440908199508211732');
+
+//字符重复
+// const messgae = 'Bad weather....All is going to be fine!';
+
+// const planesInline = function (n) {
+//   console.log(`现在一共有${n}架飞机在空中待命${'✈️'.repeat(n)}`);
+// };
+
+// planesInline(5);
+
+//编程挑战4
+
+// const convert = function (input) {
+//   const wordsArr = input.trim().toLowerCase().split('\n');
+//   let wordList = [];
+//   for (const [number, i] of wordsArr.entries()) {
+//     //拆分遍历的i到frist和second
+//     const [frist, second] = i.split('_');
+
+//     //组合frist和second为新的数组
+//     const convertWords = `${frist}${second.replace(
+//       second[0],
+//       second[0].toUpperCase()
+//     )}`;
+
+//     //递增✅符号
+//     const convertWords_pad =
+//       convertWords.padEnd(20, ' ') + '✅'.repeat(number + 1);
+
+//     wordList.push(convertWords_pad);
+//   }
+//   console.log(wordList.join('\n'));
+// };
+
+// convert(`underscore_case
+// first_name
+// Some_Variable
+// calculate_AGE
+// delayed_departure`);
+
+//string练习
+
+// const flights =
+//   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// const airlineMessage = [];
+// const stringProcess = function (data) {
+//   const raw = data.split('+');
+//   for (let i of raw) {
+//     let [status, from, to, time] = i.split(';');
+//     status = status.replaceAll('_', ' ');
+//     from = from.slice(0, 3).toUpperCase();
+//     to = to.slice(0, 3).toUpperCase();
+//     time = time.replace(':', 'h');
+//     // console.log(status, from, to, time + '\n');
+//     if (status.includes('Delayed')) {
+//       airlineMessage.push(`⚠️${status} from ${from} to ${to}  (${time})`);
+//     } else {
+//       airlineMessage.push(`✈️${status} from ${from} to ${to}  (${time})`);
+//     }
+//   }
+//   console.log(airlineMessage.join('\n'));
+// };
+
+// stringProcess(flights);
