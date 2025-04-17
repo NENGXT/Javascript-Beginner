@@ -1409,8 +1409,84 @@ person("AXITEE")(19);
 -   但如果函数是“单独调用”的（例如 `函数()`），那 `this` 就是 `undefined`（在严格模式下），因为没有调用者。
 -   所以当我们把一个对象的方法单独赋值给变量再调用时，由于没有对象参与调用，`this` 会丢失。
 
-#### ✅ 正确理解 this 的关键点：
+在 JavaScript 中，`this` 的值取决于函数的调用方式。通过使用 `.call()`、`.apply()` 或 `.bind()` 方法，可以显式地指定 `this` 的值（调用的对象）。例如：
 
--   `this` 不属于函数，而属于**函数调用的上下文**
--   赋值函数没问题，**真正决定 this 的是执行方式**
--   想控制 `this`，可以用 `.call()`、`.apply()` 或 `.bind()`
+-   `.call()`
+
+```javascript
+const oldperson = {
+    name: "KUMA",
+    age(date) {
+        console.log(`${this.name}'s age is ${date}`);
+    },
+};
+
+oldperson.age(30);
+
+const newperson = {
+    name: "AXITEE",
+};
+
+const newage = oldperson.age;
+newage.call(newperson, 29);
+```
+
+**第一个参数不需要和原对象的名字一样，但这个对象必须拥有原方法内部用到的属性**
+
+-   `.apply()` :**和 call 一样括号内第一个是调用 this 的对象，但是 apply 的参数部分只接受数组形式的值**
+
+```javascript
+const oldperson = {
+    name: "KUMA",
+    age(birthyear, year) {
+        console.log(`${this.name}'s age is ${year - birthyear}`);
+    },
+};
+
+const ageFn = oldperson.age;
+ageFn.apply(oldperson, [1995, 2025]);
+```
+
+-   `.bind()` 和 .call() 一样，括号内第一个参数是调用时 this 的对象，但和 .call() / .apply() 不同的是：.bind() 不会立即执行函数，而是返回一个新的函数，这个函数已经绑定好了 this 和你传入的参数，可以稍后再执行。
+
+```javascript
+const oldperson = {
+    name: "小咪",
+    age(year, birthday) {
+        console.log(`${this.name}'s age is ${year - birthday}`);
+    },
+};
+
+const newperson = {
+    name: "小汪",
+};
+
+const useFn = oldperson.age;
+const newFn = useFn.blind(newperson);
+
+newFn(2025, 1995); //输出
+```
+
+-   在使用`.bind()`做部分应用时，如果原函数内部不使用 this，可以将 this 参数设为 null，只利用 bind 的“预填参数”功能。
+
+```javascript
+const addTax = (rate, value) => value + value * rate;
+
+const addJP = addTax.bind(null, 0.1);
+
+console.log(addJP(200)); //输出220
+```
+
+### 立即调用的函数(IIFE)
+
+在 Js 中，有时候需要一些只执行一次的函数,可以用括号将该函数包括起来再调用它，例如：
+
+```javascript
+(function () {
+    console.log("once!!");
+})();
+```
+
+该函数只会是一个表达式，不能被反复调用.
+
+### 闭包
