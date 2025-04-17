@@ -1301,3 +1301,116 @@ const person = function (name, age, country = "中国") {
     return country;
 }; //在没有外部传入新的数据到country，将保持原有的值。
 ```
+
+-   默认参数可以是具体的值，也可以是表达式。
+
+### 参数传递的工作方式：值传递 vs.引用传递
+
+-   值类型（Primitive Types）
+
+    -   包括：string、number、boolean、undefined、null、symbol、bigint
+    -   通过值传递
+    -   会将值复制一份传给函数参数
+    -   函数内部的修改不会影响外部变量
+
+-   引用类型（Reference Types）
+
+    -   包括：object、array、function
+    -   通过引用传递
+    -   实际上传的是地址（引用）
+    -   函数内部的修改会影响原始对象
+
+-   ⚠️ 在函数内部操作对象时，应避免直接修改原始对象的内容。
+    这会带来副作用，特别是当多个函数共享同一个对象时，可能会因为其中一个函数的修改影响其他逻辑，导致数据异常或难以排查的 Bug。
+
+-   原始值的传递方式
+
+```
+原始值变量
+┌────────────┐
+│  name = "Kuma" │
+└────────────┘
+        ↓ 复制值
+┌────────────┐
+│ function(n = "Kuma") │ // 改动 n，不影响外部
+└────────────┘
+
+```
+
+-   对象的传递方式
+
+```
+对象变量
+┌────────────┐
+│ person --> 内存地址 0xA1 │
+└────────────┘
+
+        ↓ 复制“引用值”（0xA1）
+
+┌────────────┐
+│ function(obj = 0xA1) │
+│ obj.name = ...       │ // ✅ 改了原对象
+│ obj = { ... }        │ // ❌ 只是改了 obj 本身，不影响外部变量
+└────────────┘
+```
+
+### 一等函数与高阶函数
+
+-   在 js 中，函数被定义为一等公民，这意味着该函数仅被视为一种值。
+
+-   为什么函数在 js 中是这样工作的？ 因为函数在 js 中被视为 object 的一种，而 object 本身就是一种值类型。
+
+-   不要混淆**一等函数**和**高阶函数**。一等函数是一种特性，表示函数本身在该编程语言中视为一种值，而正是因为这种特性，才有高阶函数这种**写法**（函数套函数）
+
+### 接受回调函数的函数
+
+-   在 javascript 中，可以写一个高阶函数，该函数接受其他函数处理的结果并返回，例如:
+
+```javascript
+const person = function (name) {
+    return name + "!!";
+};
+
+const highLevel = function (name, fn) {
+    console.log(`${fn(name)}`);
+};
+
+highLevel("AXITEE", person); //输出："AXITEE!!"
+```
+
+### 返回函数的函数
+
+-   **函数返回函数**是一种常见的函数式编程技巧，适用于**函数工厂**、**部分应用（partial application）**等场景。
+
+```js
+const greet = function (greeting) {
+    return function (name) {
+        console.log(`${greeting}, ${name}`);
+    };
+};
+
+const result = greet("Hello");
+result("AXITEE"); // 输出：Hello, AXITEE
+```
+
+-   返回函数的函数也可以用复数个箭头函数连接：
+
+```javascript
+const person = (name) => (age) =>
+    console.log(`I am ${name} and I am ${age} years old`);
+person("AXITEE")(19);
+```
+
+### This 关键字
+
+-   JavaScript 中，函数内部的 `this`，**并不是在函数被定义时决定的**。
+-   它的值是在**函数被执行的那一刻，根据“谁调用了它”动态决定的**。
+-   如果函数是被某个对象调用的（例如 `obj.函数()`），那 `this` 就指向那个对象。
+-   但如果函数是“单独调用”的（例如 `函数()`），那 `this` 就是 `undefined`（在严格模式下），因为没有调用者。
+-   所以当我们把一个对象的方法单独赋值给变量再调用时，由于没有对象参与调用，`this` 会丢失。
+
+#### ✅ 正确理解 this 的关键点：
+
+-   `this` 不属于函数，而属于**函数调用的上下文**
+-   赋值函数没问题，**真正决定 this 的是执行方式**
+-   想控制 `this`，可以用 `.call()`、`.apply()` 或 `.bind()`
