@@ -1490,3 +1490,26 @@ console.log(addJP(200)); //输出220
 该函数只会是一个表达式，不能被反复调用.
 
 ### 闭包
+
+-   什么是闭包？
+
+闭包就是一个函数可以记住并访问它定义时的词法作用域，即使这个函数是在它的作用域之外执行的。
+
+换句话说：**内部函数能访问外部函数的变量，即使外部函数已经执行完毕。**
+
+-   🧠 举个简单例子
+
+```js
+function outer() {
+    let count = 0;
+    return function () {
+        count++;
+        console.log(count);
+    };
+}
+
+const counter = outer(); // outer 已经执行完，但它的变量 "count" 没有被销毁
+counter(); // 1
+counter(); // 2
+counter(); // 3
+```
