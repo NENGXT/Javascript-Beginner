@@ -1513,3 +1513,56 @@ counter(); // 1
 counter(); // 2
 counter(); // 3
 ```
+
+## 与数组一起工作（项目）
+
+### 简单的数组方法
+
+-   `.slice()`: 和字符串的切片方法一样，`slice`也可以用在数组对象中。
+
+```javascript
+const arr = ["a", "b", "c", "d"];
+console.log(arr.slice(0, 2)); //输出'a'和'b'
+```
+
+-   `.splice()`: 工作方式几乎与`slice`相同，不同的是，`splice`会直接改变原数组，并拿走原数组里提取的值。
+
+```javascript
+const arr = ["a", "b", "c"];
+const cut = arr.splice(2);
+console.log(arr); //会输出['a','b']
+console.log(cut); //会输出['c']
+```
+
+-   `.reverse()`: 倒转数组，**会改变原数组**
+-   `.concat()`: 合并数组，在括号内写要合并的变量名
+
+```javascript
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+console.log(arr1.concat(arr2)); //输出1，2，3，4
+```
+
+-   `.at()`: ES2022 的新方法，作用和用`[索引]`查找数组中的元素一样。并且同样适用于字符串。
+
+### 循环方法 forEach
+
+-   使用`.forEach()`来遍历数组，因为它是一个高阶函数，所以在括号内需要加一个回调函数，它将遍历数组时循环执行回调函数中的内容
+
+```javascript
+const arr = [1, 2, 3];
+arr.forEach(function (i) {
+    console.log(i); // 输出1，2，3
+});
+```
+
+-   `.forEach()`中，回调函数的参数值分别代表`(传入的值,索引,整个数组)`
+
+```javascript
+const arr = ['wo','wo','shou'];
+arr.forEach(funciton(value,index,array){
+    console.log(index,value);//输出:1 wo 2 wo 3 shou
+});
+```
+
+### 创建 DOM 元素
