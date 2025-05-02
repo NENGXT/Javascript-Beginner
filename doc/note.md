@@ -1566,3 +1566,8 @@ arr.forEach(funciton(value,index,array){
 ```
 
 ### 创建 DOM 元素
+
+-   `element.insertAdjacentHTML(position,html)`
+    -   用于将 HTML 字符串插入到指定元素的特定位置。
+    -   常用位置参数包括：`'beforebegin'`、`'afterbegin'`、`'beforeend'`、`'afterend'`。
+    -   示例：`container.insertAdjacentHTML('afterbegin', '<div>Hello</div>');` 会在容器开头插入内容。
