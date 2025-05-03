@@ -78,6 +78,16 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const createUserName = function (accs) {
+  accs.forEach(acc => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(word => word[0])
+      .join('');
+  });
+};
+createUserName(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -91,3 +101,15 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+//map
+// const convertUSD = 1.1;
+
+// const movementText = movements.map(
+//   (mov, index, array) =>
+//     `${mov > 0 ? 'Deposit' : 'Withdrawal'} ${index + 1}: $${Math.floor(
+//       Math.abs(mov) * convertUSD
+//     )}`
+// );
+
+// console.log(movementText);

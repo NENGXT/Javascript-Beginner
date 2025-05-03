@@ -1571,3 +1571,19 @@ arr.forEach(funciton(value,index,array){
     -   用于将 HTML 字符串插入到指定元素的特定位置。
     -   常用位置参数包括：`'beforebegin'`、`'afterbegin'`、`'beforeend'`、`'afterend'`。
     -   示例：`container.insertAdjacentHTML('afterbegin', '<div>Hello</div>');` 会在容器开头插入内容。
+
+### 数据转换方法
+
+-   `map`: 通过`()`内指定的方法遍历数组对象，并且将生成一个新数组。
+    -   语法结构: `.map(function(value,index,array){})`
+    -   代码示例:
+
+```javascript
+const arr = [1, 2, 3];
+arr.map(function (muilt) {
+    return muilt * 2;
+}); //输出[2,4,6]
+```
+
+-   `filter`: 过滤器，通过`()`内的条件遍历数组对象，筛选出符合条件的元素。
+-   `reduce`: 累加器，通过`()`内的回调函数，将数组元素依次“累积处理”，最终返回一个单一值（如总和、平均数、对象等）。
