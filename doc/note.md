@@ -1586,4 +1586,24 @@ arr.map(function (muilt) {
 ```
 
 -   `filter`: 过滤器，通过`()`内的条件遍历数组对象，筛选出符合条件的元素。
+    -   语法结构: `.filter(function(value,index,array){})`
+    -   代码示例:
+
+```javascript
+const arr = [1, -2, 3];
+const add = arr.filter((add) => arr > 0);
+conosle.log(add); //输出[1,3]
+```
+
 -   `reduce`: 累加器，通过`()`内的回调函数，将数组元素依次“累积处理”，最终返回一个单一值（如总和、平均数、对象等）。
+    -   语法结构: `.reduce(function(累加器,当前值,index,arr){} , 默认初始值)`
+    -   代码示例:
+
+```javascript
+const arr = [1, -2, 3];
+const add = arr.reduce((arr, cur) => {
+    arr = arr + cur;
+    return arr;
+});
+console.log(add); //输出2（1+-2+3）
+```
