@@ -163,9 +163,7 @@ alert("Hello World");
 ```js
 let isFun = true;
 let message = "Hello world!";
-console.log(
-    "messgae type is " + typeof message + " and isFun type is " + typeof isFun
-);
+console.log("messgae type is " + typeof message + " and isFun type is " + typeof isFun);
 //输出结果：message type is string and isFun type is boolean
 ```
 
@@ -192,8 +190,7 @@ const firstName = "AXITEE";
 const job = "Software Engineer";
 const age = new Date().getFullYear() - 1995;
 
-const aboutMe =
-    "我是" + firstName + "，我是一名" + job + "，我今年" + age + "。";
+const aboutMe = "我是" + firstName + "，我是一名" + job + "，我今年" + age + "。";
 const newMe = `我是${firstName}，我是一名${job},我今年${age}。`;
 
 console.log(aboutMe);
@@ -254,9 +251,7 @@ switch (guessNumber) {
 
 ```js
 const isAdult = true;
-isAdult
-    ? console.log("You are an adult!")
-    : console.log("You are not an adult!");
+isAdult ? console.log("You are an adult!") : console.log("You are not an adult!");
 ```
 
 -   示例 2(通过一个新的变量来储存条件运算符的结果):
@@ -1396,8 +1391,7 @@ result("AXITEE"); // 输出：Hello, AXITEE
 -   返回函数的函数也可以用复数个箭头函数连接：
 
 ```javascript
-const person = (name) => (age) =>
-    console.log(`I am ${name} and I am ${age} years old`);
+const person = (name) => (age) => console.log(`I am ${name} and I am ${age} years old`);
 person("AXITEE")(19);
 ```
 
@@ -1585,7 +1579,7 @@ arr.map(function (muilt) {
 }); //输出[2,4,6]
 ```
 
--   `filter`: 过滤器，通过`()`内的条件遍历数组对象，筛选出符合条件的元素。
+-   `filter`: 过滤器，通过`()`内的条件遍历数组对象，筛选出符合条件的元素并返回新数组。
     -   语法结构: `.filter(function(value,index,array){})`
     -   代码示例:
 
@@ -1606,4 +1600,28 @@ const add = arr.reduce((arr, cur) => {
     return arr;
 });
 console.log(add); //输出2（1+-2+3）
+```
+
+-   `find`: 查找器，通过`()`内的回调函数，根据指定条件查找复合的元素，并返回数组中的**第一个**元素。
+    -   语法结构: `.reduce(function(累加器,当前值,index,arr){} , 默认初始值)`
+    -   代码示例：
+
+```javascript
+const user = [
+    {
+        username: "axitee",
+        email: "axitee@axitee.com",
+    },
+    {
+        username: "jessica-davis",
+        email: "jessica.davis@example.com",
+    },
+    {
+        username: "john-doe",
+        email: "john.doe@example.com",
+    },
+];
+
+const check = user.find((acc) => acc.username === `axitee`);
+console.log(check); //输出user数组中的aixtee对象信息。
 ```

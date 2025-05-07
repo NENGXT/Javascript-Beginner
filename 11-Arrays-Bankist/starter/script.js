@@ -84,7 +84,29 @@ const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, cur) => acc + cur, 0);
   labelBalance.textContent = `${balance}€`;
 };
-calcDisplayBalance(account2.movements);
+calcDisplayBalance(account1.movements);
+
+//显示总收入/总支出/利息
+const calcDisplaySummary = function (movements) {
+  const incomes = movements
+    .filter(mov => mov > 0)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const outcomes = movements
+    .filter(mov => mov < 0)
+    .reduce((acc, cur) => acc + cur, 0);
+  labelSumOut.textContent = `${outcomes}€`;
+
+  const interest = movements
+    .filter(mov => mov > 0)
+    .map(money => (money * 1.2) / 100)
+    .filter(insert => insert >= 1)
+    .reduce((acc, insert) => acc + insert, 0);
+
+  labelSumInterest.textContent = `${interest}€`;
+};
+calcDisplaySummary(account1.movements);
 
 //获取username
 const createUserName = function (accs) {
@@ -107,8 +129,6 @@ const currencies = new Map([
   ['EUR', 'Euro'],
   ['GBP', 'Pound sterling'],
 ]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
@@ -137,7 +157,22 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // console.log(balance);
 
 //Maximum value
-const maxValue = movements.reduce((arr, cur) => {
-  return arr > cur ? arr : cur;
-}, movements[0]);
-console.log(maxValue);
+// const maxValue = movements.reduce((arr, cur) => {
+//   return arr > cur ? arr : cur;
+// }, movements[0]);
+// console.log(maxValue);
+
+//Method Chain
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const convertUSD = function (value) {
+//   const EurToUsd = value
+//     .filter(mov => mov > 0)
+//     .reduce((acc, cur) => acc + cur * 1.1, 0);
+//   return Math.trunc(EurToUsd);
+// };
+
+// console.log(convertUSD(movements));
+
+//find
+const account = accounts.find(acc => acc.owner === 'jss');
+console.log(account);
