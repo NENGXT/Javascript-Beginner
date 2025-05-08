@@ -120,6 +120,8 @@ const createUserName = function (accs) {
 };
 createUserName(accounts);
 
+//登陆功能
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -174,5 +176,5 @@ const currencies = new Map([
 // console.log(convertUSD(movements));
 
 //find
-const account = accounts.find(acc => acc.owner === 'jss');
-console.log(account);
+// const account = accounts.find(acc => acc.username === 'ss');
+// console.log(account);
