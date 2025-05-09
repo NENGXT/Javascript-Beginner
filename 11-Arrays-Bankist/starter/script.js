@@ -78,8 +78,9 @@ const displayMovements = function (movements) {
 };
 
 //显示总余额
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, cur) => acc + cur, 0);
+const calcDisplayBalance = function (acc) {
+  const balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
+  acc.balance = balance;
   labelBalance.textContent = `${balance}€`;
 };
 
@@ -116,8 +117,17 @@ const createUserName = function (accs) {
 };
 createUserName(accounts);
 
-//登陆功能
+//更新UI界面功能
+const updateUI = function (acc) {
+  //显示流水
+  displayMovements(acc.movements);
+  //显示总余额
+  calcDisplayBalance(acc);
+  //显示总结
+  calcDisplaySummary(acc);
+};
 
+//登陆功能
 let currentAcount;
 
 btnLogin.addEventListener('click', function (e) {
@@ -132,18 +142,42 @@ btnLogin.addEventListener('click', function (e) {
     }! `;
     containerApp.style.opacity = 1;
 
-    //显示流水
-    displayMovements(currentAcount.movements);
-    //显示总余额
-    calcDisplayBalance(currentAcount.movements);
-    //显示总结
-    calcDisplaySummary(currentAcount);
+    //使用更新UI的函数
+    updateUI(currentAcount);
+
     //清空输入框内容并将焦点从输入框移开
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginUsername.blur();
     inputLoginPin.blur();
   }
   inputLoginUsername.value = inputLoginPin.value = '';
+});
+
+//转账功能
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amout = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  //查看输入的金额是否够用
+  if (
+    amout > 0 &&
+    amout <= currentAcount.balance &&
+    receiverAcc?.username !== currentAcount.username
+  ) {
+    //当前账户减去金额，对方账户加上金额
+    currentAcount.movements.push(-amout);
+    receiverAcc.movements.push(amout);
+
+    //更新流水/总余额/总结的UI
+    updateUI(currentAcount);
+
+    //清空输入框内容并将焦点从输入框移开
+    inputTransferTo.value = inputTransferAmount.value = '';
+    inputTransferTo.blur();
+    inputTransferAmount.blur();
+  }
 });
 
 /////////////////////////////////////////////////
