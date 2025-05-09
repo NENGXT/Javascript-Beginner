@@ -77,36 +77,32 @@ const displayMovements = function (movements) {
   });
 };
 
-displayMovements(account1.movements);
-
 //显示总余额
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, cur) => acc + cur, 0);
   labelBalance.textContent = `${balance}€`;
 };
-calcDisplayBalance(account1.movements);
 
 //显示总收入/总支出/利息
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, cur) => acc + cur, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const outcomes = movements
+  const outcomes = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, cur) => acc + cur, 0);
   labelSumOut.textContent = `${outcomes}€`;
 
-  const interest = movements
+  const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(money => (money * 1.2) / 100)
+    .map(money => (money * acc.interestRate) / 100)
     .filter(insert => insert >= 1)
     .reduce((acc, insert) => acc + insert, 0);
 
   labelSumInterest.textContent = `${interest}€`;
 };
-calcDisplaySummary(account1.movements);
 
 //获取username
 const createUserName = function (accs) {
@@ -121,6 +117,34 @@ const createUserName = function (accs) {
 createUserName(accounts);
 
 //登陆功能
+
+let currentAcount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  currentAcount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  if (currentAcount?.pin === Number(inputLoginPin.value)) {
+    //显示UI和欢迎语
+    labelWelcome.innerHTML = `Welcome back, ${
+      currentAcount.owner.split(' ')[0]
+    }! `;
+    containerApp.style.opacity = 1;
+
+    //显示流水
+    displayMovements(currentAcount.movements);
+    //显示总余额
+    calcDisplayBalance(currentAcount.movements);
+    //显示总结
+    calcDisplaySummary(currentAcount);
+    //清空输入框内容并将焦点从输入框移开
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginUsername.blur();
+    inputLoginPin.blur();
+  }
+  inputLoginUsername.value = inputLoginPin.value = '';
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////

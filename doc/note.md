@@ -587,6 +587,8 @@ JavaScript 能够通过 document 进入 DOM 来访问 HTML。
     -   `classList.toggle(className)`：如果类名存在，则移除；如果不存在，则添加。
     -   `classList.contains(className)`：检查类名是否存在。
 
+-   `.blur()` 方法用于将焦点从当前元素移开。
+
 -   `.src` 是一个属性，可以用来设置或获取元素的源文件路径。
 
 -   **通常在 JavaScript 中操控页面时，最好给这个元素添加一个要被操作的单独的类名，这样可以方便地进行样式控制和事件处理。**
@@ -1624,4 +1626,19 @@ const user = [
 
 const check = user.find((acc) => acc.username === `axitee`);
 console.log(check); //输出user数组中的aixtee对象信息。
+```
+
+### 修改按钮的默认行为
+
+HTML 中，如果你有一个 <form> 表单，并且表单里有一个按钮。当你点击这个按钮时，浏览器默认行为是：
+
+-   尝试“提交表单”
+-   页面会刷新，重新加载
+
+为了避免这个情况，我们会在按钮的事件响应函数中写下以下代码：
+
+```javascript
+btn.addEventListener("click", function (e) {
+    e.preventDefault();
+});
 ```
