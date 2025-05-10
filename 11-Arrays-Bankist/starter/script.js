@@ -180,6 +180,24 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+//删除当前账户功能
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (
+    currentAcount.username === inputCloseUsername.value &&
+    currentAcount.pin === Number(inputClosePin.value)
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAcount.username
+    );
+    accounts.splice(index, 1);
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
+  inputCloseUsername.blur();
+  inputClosePin.blur();
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -236,3 +254,5 @@ const currencies = new Map([
 //find
 // const account = accounts.find(acc => acc.username === 'ss');
 // console.log(account);
+
+const arr1 = [1, 23, 4];

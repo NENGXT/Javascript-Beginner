@@ -1605,7 +1605,7 @@ console.log(add); //输出2（1+-2+3）
 ```
 
 -   `find`: 查找器，通过`()`内的回调函数，根据指定条件查找复合的元素，并返回数组中的**第一个**元素。
-    -   语法结构: `.reduce(function(累加器,当前值,index,arr){} , 默认初始值)`
+    -   语法结构: `.find((参数)=>返回符合条件的参数内容)`
     -   代码示例：
 
 ```javascript
@@ -1627,6 +1627,10 @@ const user = [
 const check = user.find((acc) => acc.username === `axitee`);
 console.log(check); //输出user数组中的aixtee对象信息。
 ```
+
+-   `findIndex`: 索引查找器，通过`()`内的回调函数，根据指定条件查找复合的元素的索引。
+    -   语法结构: `.findIndex((参数)=>返回符合条件的参数索引)`
+    -   代码示例：
 
 ### 修改按钮的默认行为
 
