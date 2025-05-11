@@ -180,6 +180,20 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+//申请贷款功能
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amout = Number(inputLoanAmount.value);
+  if (amout > 0 && currentAcount.movements.some(mov => mov >= amout * 0.1)) {
+    //加钱到当前的movement上
+    currentAcount.movements.push(amout);
+    //更新流水/总余额/总结的UI
+    updateUI(currentAcount);
+  }
+  inputLoanAmount.value = '';
+  inputLoanAmount.blur();
+});
+
 //删除当前账户功能
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
@@ -208,6 +222,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /////////////////////////////////////////////////
 
 //map
@@ -255,4 +270,24 @@ const currencies = new Map([
 // const account = accounts.find(acc => acc.username === 'ss');
 // console.log(account);
 
-const arr1 = [1, 23, 4];
+//findLast
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const lastOut = movements.findLast(mov => mov > 2000);
+// const lastOutIndex = movements.findLastIndex(mov => mov == lastOut);
+// console.log(
+//   `你最近一次大规模取款是在${
+//     movements.length - lastOutIndex - 1
+//   }次前，金额是${lastOut}元。`
+// );
+
+//some
+// const testDate = movements.some(mov => mov > 0);
+// console.log(testDate);
+
+//every
+// const testDate = movements.every(mov => (mov += mov > 0));
+// console.log(testDate);
+
+//分离数组方法中的回调函数
+const dateClac = mov => mov > 0;
+console.log(movements.some(dateClac));
