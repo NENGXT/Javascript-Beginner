@@ -375,7 +375,8 @@ const huskyWeight = breeds.find(value => value.breed === 'Husky').averageWeight;
 //	2.	找出唯一一个既喜欢「running」又喜欢「fetch」的品种的名字，存入变量 dogBothActivities 中。
 const checkAct = breed =>
   breed.activities.includes('running') && breed.activities.includes('fetch');
-const dogBothActivities = breeds.filter(checkAct)[0].breed;
+const dogBothActivities = breeds.find(checkAct).breed;
+console.log(dogBothActivities);
 
 // 3.创建一个数组 allActivities，包含所有狗狗品种的所有活动。
 // 4.创建一个数组 uniqueActivities，包含所有不重复的活动（提示：使用我们之前学过的特殊数据结构，即 Set）。
@@ -405,6 +406,6 @@ const isHappy = breeds.some(act => act.activities.length >= 3);
 const isfetch = breeds
   .filter(acts => acts.activities.includes('fetch'))
   .map(weight => weight.averageWeight);
-console.log(Math.max(...isfetch));
-console.log('=================');
-console.log(isfetch.reduce((acc, cur) => acc + cur / isfetch.length, 0));
+// console.log(Math.max(...isfetch));
+// console.log('=================');
+// console.log(isfetch.reduce((acc, cur) => acc + cur / isfetch.length, 0));
