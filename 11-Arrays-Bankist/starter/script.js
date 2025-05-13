@@ -383,8 +383,28 @@ const allActivities = breeds.map(acts => acts.activities).flat();
 const uniqueActivities = new Set(allActivities);
 
 //5.许多狗狗品种都喜欢游泳，找出这些狗狗还喜欢的其他活动，并将这些活动（不包括 swimming）存入一个唯一的数组 swimmingAdjacent 中。
-const swimmingAdjacent = breeds
-  .filter(act => act.activities.some(act => act == 'swimming'))
-  .map(breed => breed.activities.filter(act => act != 'swimming'))
-  .flat();
-console.log(new Set(swimmingAdjacent));
+const swimmingAdjacent = new Set(
+  breeds
+    .filter(act => act.activities.some(act => act == 'swimming'))
+    .map(breed => breed.activities.filter(act => act != 'swimming'))
+    .flat()
+);
+
+//6.所有品种的平均体重是否都大于等于 10 公斤？将结果打印到控制台（true 或 false）。
+const isWeightAboveTen = breeds.every(weight => weight.averageWeight >= 10);
+
+//7.是否有任意一个品种是「活跃型」？活跃型定义为：这个品种的活动数量大于等于 3 项。将结果打印到控制台（true 或 false）。
+const isHappy = breeds.some(act => act.activities.length >= 3);
+
+/*
+🌟 加分题（BONUS）：
+	•	喜欢「fetch」的狗狗中，体重最大的是多少？
+	•	这些狗狗的平均体重是多少？
+提示：使用 Math.max 方法和扩展运算符（...）。
+*/
+const isfetch = breeds
+  .filter(acts => acts.activities.includes('fetch'))
+  .map(weight => weight.averageWeight);
+console.log(Math.max(...isfetch));
+console.log('=================');
+console.log(isfetch.reduce((acc, cur) => acc + cur / isfetch.length, 0));
