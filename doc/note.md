@@ -1696,4 +1696,11 @@ console.log(arr.flat(2)); //输出[1,...,7,8]
 
 ### 数组排序 Sorting
 
--
+-   `.sort()`:排序方法，默认按照字符串的方式排序，排序后的数组会改变原数组
+-   基本语法：
+
+```javascript
+array.sort(); // 字母排序A-Z
+array.sort((a, b) => a - b); // 数字升序
+array.sort((a, b) => b - a); // 数字降序
+```

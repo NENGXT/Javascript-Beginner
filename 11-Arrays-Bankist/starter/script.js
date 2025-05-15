@@ -62,9 +62,12 @@ const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
 //左侧拦显示账户存取
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = ''; // 清空容器内容
-  movements.forEach(function (value, index) {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (value, index) {
     const type = value > 0 ? 'deposit' : 'withdrawal';
     const html = `<div class="movements__row">
           <div class="movements__type movements__type--${type}">${
@@ -212,6 +215,14 @@ btnClose.addEventListener('click', function (e) {
   inputClosePin.blur();
 });
 
+//升序和降序
+let isSort = true;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAcount.movements, isSort);
+  isSort = !isSort;
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -301,3 +312,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   .flatMap(acc => acc.movements)
 //   .reduce((acc, mov) => acc + mov);
 // console.log(bankTotal);
+
+//sort
+// const owners = ['a', 'c', 'd', 'Adam', 'v'];
+// owners.sort();
