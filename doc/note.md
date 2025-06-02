@@ -961,13 +961,15 @@ ES6 新增的编写对象字面量时的三种方式：
 -   通过变量名创建属性：
 
 ```javascript
-const person ={
-    name: "kuma";
-    age: 25;
+const person = {
+    name: "kuma",
+    age: 25,
 };
-const personList ={
-    kuma, // 等价于 personList = {kuma: kuma}
-}
+const personList = {
+    person, // 等价于 personList = {person}
+};
+
+console.log(personList.person.name); //输出kuma
 ```
 
 -   在对象内不需要写`function`关键字就可创造函数：
@@ -1703,4 +1705,16 @@ console.log(arr.flat(2)); //输出[1,...,7,8]
 array.sort(); // 字母排序A-Z
 array.sort((a, b) => a - b); // 数字升序
 array.sort((a, b) => b - a); // 数字降序
+```
+
+### 数组编组 Array Grouping
+
+-   `Object.groupBy()`:分组方法，设定特定条件，让数组进行编组，分组后的各个数组群将被归类在一个对象中
+-   它只支持在支持 ES2023 的环境中使用（Node.js v20+ 或现代浏览器）。
+-   基本语法：
+
+```javascript
+const year = [1995, 2000, 2002, 1992, 2006, 1990];
+const yearGroup = Object.groupBy(year, (val) => (val >= 2000 ? "00s" : "90s"));
+console.log(yearGroup); //输出 00s: (3) [2000, 2002, 2006] 90s: (3) [1995, 1992, 1990]
 ```

@@ -316,3 +316,16 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //sort
 // const owners = ['a', 'c', 'd', 'Adam', 'v'];
 // owners.sort();
+
+//grouping
+const groupMovements = Object.groupBy(movements, movement =>
+  movement > 0 ? 'in' : 'out'
+);
+
+const groupByAct = Object.groupBy(accounts, account => {
+  const movmentCount = account.movements.length;
+  if (movmentCount >= 8) return 'Gold Account';
+  return 'Regular Account';
+});
+
+console.log(groupByAct);
