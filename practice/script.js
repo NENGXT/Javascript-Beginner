@@ -982,3 +982,26 @@ Last Login Ip
 // };
 
 // createGreeter("jp")("Kuma");
+
+/*Json抓取练习*/
+
+const dataCatch = async function () {
+    try {
+        const response = await fetch("singers.json");
+        const singerList = await response.json();
+        const singerListFilter = singerList
+            .map((item) => {
+                if (item.fanCount >= 10000 && item.fanCount <= 60000) {
+                    return { name: item.name, fan: item.fanCount };
+                } else {
+                    return null;
+                }
+            })
+            .filter((item) => item);
+        console.log(singerListFilter);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+dataCatch();
