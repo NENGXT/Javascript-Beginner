@@ -318,14 +318,38 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // owners.sort();
 
 //grouping
-const groupMovements = Object.groupBy(movements, movement =>
-  movement > 0 ? 'in' : 'out'
-);
+// const groupMovements = Object.groupBy(movements, movement =>
+//   movement > 0 ? 'in' : 'out'
+// );
 
-const groupByAct = Object.groupBy(accounts, account => {
-  const movmentCount = account.movements.length;
-  if (movmentCount >= 8) return 'Gold Account';
-  return 'Regular Account';
+// const groupByAct = Object.groupBy(accounts, account => {
+//   const movmentCount = account.movements.length;
+//   if (movmentCount >= 8) return 'Gold Account';
+//   return 'Regular Account';
+// });
+
+// console.log(groupByAct);
+
+//fill
+// const arr = new Array(8);
+// console.log(arr.fill(0));
+
+// const arr1 = new Array(5);
+// console.log(arr1.fill('hello', 1, 3));
+
+//Array.from
+// const arr = Array.from({ length: 6 }, (_, i) => i + 1);
+// console.log(arr);
+// const dice = Array.from(
+//   { length: 100 },
+//   (_, i) => Math.floor(Math.random() * 6) + 1
+// );
+// console.log(dice);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => el.textContent
+  );
+  console.log(movementsUI);
 });
-
-console.log(groupByAct);

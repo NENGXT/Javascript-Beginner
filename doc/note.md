@@ -1718,3 +1718,27 @@ const year = [1995, 2000, 2002, 1992, 2006, 1990];
 const yearGroup = Object.groupBy(year, (val) => (val >= 2000 ? "00s" : "90s"));
 console.log(yearGroup); //输出 00s: (3) [2000, 2002, 2006] 90s: (3) [1995, 1992, 1990]
 ```
+
+### 更多创建数组的方法
+
+-   在 javascript 中，我们可以直接用变量创建数组，也可以使用`new Array(元素数量)`来创建。
+-   当使用`new Array(元素数量)`创建数组时，每个元素的值都是 empty 对象。所以需要使用`.fill()`方法来填充数组， 例如：
+
+```javascript
+//普通填充
+const arr = new Array(5);
+arr.fill("Hello");
+console.log(arr); //输出 ["Hello", "Hello", "Hello", "Hello", "Hello"]
+
+//指定数组位置填充
+const arr = new Array(5);
+arr.fill("Hello", 1, 3);
+console.log(arr); //输出[空白, 'hello', 'hello', 空属性 × 2]
+```
+
+-   除了`new Array(元素数量)`，我们也可以使用`Array.from()`方法来创建数组。例如：
+
+```javascript
+const arr = Array.from({ length: 5 }, (cur, i) => i + 1);
+console.log(arr); //输出 [1, 2, 3, 4, 5]
+```
