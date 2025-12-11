@@ -15,12 +15,20 @@ const [a, b, c] = arr;
 
 //-------------特殊练习-------------//
 const getMessage = document.getElementById('message');
-const getWeather = async function () {
-  getMessage.textContent = `☁️ 正在获取天气...`;
-  const response = await fetch('https://wttr.in/Tokyo?format=3');
-  const data = await response.text();
-  getMessage.textContent = data;
-};
-getWeather();
-setInterval(getWeather, 300000);
+
+async function updateMessage() {
+  try {
+    getMessage.textContent = '🤖 等苦蛋说话...';
+    const res = await fetch('http://localhost:3100/ollama');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    getMessage.textContent = (data.text || '（暂无消息）').trim();
+  } catch (err) {
+    getMessage.textContent = `⚠️ ${err.message}`;
+  }
+}
+
+updateMessage();
+setInterval(updateMessage, 3000);
+
 //-------------------------------//
