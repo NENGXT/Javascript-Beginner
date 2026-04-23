@@ -1,31 +1,16 @@
 'use strict';
-//-------------特殊练习-------------//
-const getMessage = document.getElementById('message');
-async function updateMessage() {
-  try {
-    getMessage.textContent = '🤖 等苦蛋说话...';
-    const res = await fetch('http://localhost:3100/ollama');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-
-    const text = (data.text || '（暂无消息）').trim();
-    getMessage.textContent = text;
-  } catch (err) {
-    getMessage.textContent = `⚠️ ${err.message}`;
-  }
-}
-
-updateMessage();
-setInterval(updateMessage, 3000);
-//-------------------------------//
 
 // Data needed for first part of the section
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  //ES6增强对象字面量
+  // openHours,
   openHours: {
     mon: { open: 12, close: 2 },
     wed: { open: 11, close: 2 },
@@ -117,6 +102,37 @@ const rest2 = {
 rest1.owner ||= '老八';
 rest2.numGuest = rest1.numGuest || 10;
 
+//'?.'
+const openStore = {
+  mon: { open: 7, close: 9 },
+  wed: { open: 2, close: 9 },
+  fri: { open: 7, close: 9 },
+};
+
+const days = ['mon', 'tue', 'wed', 'thr', 'fri'];
+
+for (const day of days) {
+  const whenOpen = openStore[day]?.open ?? 'close';
+}
+
+const users = [{ name: 'kuma', id: '0754' }];
+
+//遍历对象的key
+const propeties = Object.keys(openHours);
+// console.log(`We are opening in ${propeties.length} days`);
+for (const day of propeties) {
+  // console.log(day);
+}
+
+//遍历对象的value
+const values = Object.values(openHours);
+
+//entries对象
+const entries = Object.entries(openHours);
+for (const [day, { open, close }] of entries) {
+  // console.log(`on ${day},we open at ${open} and close at ${close}`);
+}
+
 ///////////////////////////////////////
 // 编码挑战 #1
 
@@ -179,7 +195,6 @@ const game = {
     // console.log(`进球的球员:`, ...socredPlayer, `goals:${socredPlayer.length}`);
   },
 };
-
 //第一题
 const [player1, player2] = game.players;
 //第二题
@@ -199,5 +214,64 @@ const whoWon = team1 < team2;
 // console.log(whoWon);
 ///////////////////////////////////////
 
-//for of
-const arr = [1, 2, 3, 4, 5];
+// 编码挑战 #2
+
+/*
+让我们继续完善这个足球竞猜应用！
+
+1. 遍历 `game.scored` 数组，把每个进球球员的名字以及进球序号打印到控制台。
+   示例：`Goal 1: Lewandowski`
+
+2. 使用循环计算平均赔率，并把结果打印到控制台。
+   （我们之前已经学过怎么求平均值，如果你忘了可以回去看看）
+
+3. 把这 3 个赔率以漂亮的格式打印到控制台，格式必须和下面完全一致：
+      Odd of victory Bayern Munich: 1.33
+      Odd of draw: 3.25
+      Odd of victory Borrussia Dortmund: 6.5
+
+   球队名称要直接从 `game` 对象中获取，不要手动写死
+   （只有 `"draw"` 可以直接写）。
+   提示：注意 `odds` 对象和 `game` 对象里用了相同的属性名 😉
+
+加分题：
+创建一个叫做 `scorers` 的对象，
+把进球球员的名字作为属性名，把进球数作为属性值。
+
+在这场比赛里，它看起来会像这样：
+
+      {
+        Gnarby: 1,
+        Hummels: 1,
+        Lewandowski: 2
+      }
+
+祝你好运 😀
+*/
+//第一题
+for (const [no, goal] of game.scored.entries()) {
+  // console.log(`Goal ${no + 1}:${goal}`);
+}
+//第二题
+const odd = Object.entries(game.odds);
+let oddAvg = 0;
+
+for (const [i, j] of odd) {
+  let msg = ``;
+  oddAvg += j;
+}
+// console.log(oddAvg / odd.length);
+//第三题
+for (const [team, z] of odd) {
+  const teamSTR = team === 'x' ? 'draw' : `vistory ${game[team]}`;
+  console.log(`odd of ${teamSTR} is ${z}`);
+}
+//加分题
+const scorers = {};
+for (const player of game.scored) {
+  if (scorers[player]) {
+    scorers[player]++;
+  } else {
+    scorers[player] = 1;
+  }
+}
