@@ -264,7 +264,7 @@ for (const [i, j] of odd) {
 //第三题
 for (const [team, z] of odd) {
   const teamSTR = team === 'x' ? 'draw' : `vistory ${game[team]}`;
-  console.log(`odd of ${teamSTR} is ${z}`);
+  // console.log(`odd of ${teamSTR} is ${z}`);
 }
 //加分题
 const scorers = {};
