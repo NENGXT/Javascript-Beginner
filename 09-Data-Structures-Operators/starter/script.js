@@ -2,6 +2,8 @@
 
 // Data needed for first part of the section
 
+'use strict';
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -132,6 +134,76 @@ const entries = Object.entries(openHours);
 for (const [day, { open, close }] of entries) {
   // console.log(`on ${day},we open at ${open} and close at ${close}`);
 }
+
+//SET
+const arr2 = new Set([1, 1, 4, 5, 1, 4]);
+
+// .has
+const eki = new Set([
+  'Shibuya',
+  'Shinjuku',
+  'Ikebukuro',
+  'Tokyo',
+  'Ueno',
+  'Akihabara',
+]);
+//.delete & .add
+eki.delete('Tokyo');
+eki.add('Tokyo');
+
+//////////////////SET的新方法/////////////////////
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+//.intersection 比较两组set中的相同元素
+const commonFoods = italianFoods.intersection(mexicanFoods);
+//.union 合并两组set中的元素
+const italianMixmexican = italianFoods.union(mexicanFoods);
+//.difference 会识别两组set中，第一组（被使用difference方法的）不相同的元素
+const differnceFoods = italianFoods.difference(mexicanFoods);
+
+//////////////////SET的新方法/////////////////////
+
+//Maps
+const restFoods = new Map();
+restFoods
+  .set(1, 'lajiaochaorou')
+  .set(2, 'udon')
+  .set(true, 'お客様は注文しています')
+  .set(false, 'ただいま商品は在庫しておりません');
+
+const order = 0;
+// console.log(restFoods.get(order >= 1 && order <= 2));
+const question = new Map([
+  ['问题', '世界上最发达的国家是哪个'],
+  [1, '美国'],
+  [2, '中国'],
+  ['correct', 2],
+  [true, 'YESSSSSSS'],
+  [false, '错误'],
+]);
+
+for (let [key, value] of question) {
+  if (typeof key === 'number') {
+  }
+}
+const prompt = 2;
+// console.log(question.get(question.get('correct') === prompt));
 
 ///////////////////////////////////////
 // 编码挑战 #1
