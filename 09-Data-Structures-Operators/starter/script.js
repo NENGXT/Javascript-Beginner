@@ -2,8 +2,6 @@
 
 // Data needed for first part of the section
 
-'use strict';
-
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
